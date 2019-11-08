@@ -11,6 +11,7 @@ import UIKit
 class TvCategoryView: UIView {
     
     let tvCategoryViewCellId = "tvCategoryViewCellId"
+    var tvCategories = [Category(name: "Horror",imageName: "horror"),Category(name: "Action",imageName: "action"),Category(name: "Comedy",imageName: "comedy")]
     
     let tvCategoryLbl: UILabel = {
        let tcl = UILabel()
@@ -72,11 +73,12 @@ class TvCategoryView: UIView {
 
 extension TvCategoryView: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return tvCategories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tvCategoryViewCellId, for: indexPath) as! TvCategoryViewCell
+        cell.tvCategory = tvCategories[indexPath.item]
         return cell
     }
     

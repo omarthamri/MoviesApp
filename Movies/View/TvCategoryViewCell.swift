@@ -11,9 +11,19 @@ import UIKit
 
 class TvCategoryViewCell: UICollectionViewCell {
     
+    var tvCategory: Category? {
+        didSet {
+            if let name = tvCategory?.name  {
+                tvCategoryTitle.text = name
+            }
+            if let imageName = tvCategory?.imageName {
+                tvCategoryImg.image = UIImage(named: imageName)
+            }
+        }
+    }
+    
     let tvCategoryImg: UIImageView = {
         let nmi = UIImageView()
-        nmi.image = UIImage(named: "horror")
         nmi.translatesAutoresizingMaskIntoConstraints = false
         nmi.contentMode = .scaleToFill
         nmi.clipsToBounds = true
@@ -23,7 +33,6 @@ class TvCategoryViewCell: UICollectionViewCell {
     
     let tvCategoryTitle: UILabel = {
        let tcl = UILabel()
-        tcl.text = "Horror"
         tcl.textColor = UIColor.white
         tcl.textAlignment = .center
         tcl.font = UIFont.boldSystemFont(ofSize: 14)
