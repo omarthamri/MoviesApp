@@ -10,10 +10,10 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    let trendingView: UIView = {
-        let tv = UIView()
-        tv.translatesAutoresizingMaskIntoConstraints = false
-        return tv
+    let newMoviesView: NewMoviesView = {
+        let nmv = NewMoviesView()
+        nmv.translatesAutoresizingMaskIntoConstraints = false
+        return nmv
     }()
 
     override func viewDidLoad() {
@@ -25,10 +25,12 @@ class HomeViewController: UIViewController {
     
     func setupView() {
         view.backgroundColor = UIColor.init(white:0.2,alpha:1)
+        view.addSubview(newMoviesView)
     }
 
     func setupConstraints() {
-        
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[v0]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":newMoviesView]))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-74-[v0(250)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":newMoviesView]))
     }
     
     func setupNavigationBar() {

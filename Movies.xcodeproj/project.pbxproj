@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48385C422375C024001B8909 /* NewMoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48385C412375C024001B8909 /* NewMoviesView.swift */; };
+		48385C442375C5F8001B8909 /* NewMoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48385C432375C5F8001B8909 /* NewMoviesCollectionViewCell.swift */; };
 		48A670BD23732BAF00B58991 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A670BC23732BAF00B58991 /* AppDelegate.swift */; };
 		48A670BF23732BAF00B58991 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A670BE23732BAF00B58991 /* HomeViewController.swift */; };
 		48A670C523732BAF00B58991 /* Movies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 48A670C323732BAF00B58991 /* Movies.xcdatamodeld */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		48385C412375C024001B8909 /* NewMoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMoviesView.swift; sourceTree = "<group>"; };
+		48385C432375C5F8001B8909 /* NewMoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMoviesCollectionViewCell.swift; sourceTree = "<group>"; };
 		48A670B923732BAF00B58991 /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A670BC23732BAF00B58991 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48A670BE23732BAF00B58991 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 		48A670EE23732CF400B58991 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				48385C412375C024001B8909 /* NewMoviesView.swift */,
+				48385C432375C5F8001B8909 /* NewMoviesCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -284,6 +290,8 @@
 			files = (
 				48A670BF23732BAF00B58991 /* HomeViewController.swift in Sources */,
 				48A670C523732BAF00B58991 /* Movies.xcdatamodeld in Sources */,
+				48385C442375C5F8001B8909 /* NewMoviesCollectionViewCell.swift in Sources */,
+				48385C422375C024001B8909 /* NewMoviesView.swift in Sources */,
 				48A670BD23732BAF00B58991 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
