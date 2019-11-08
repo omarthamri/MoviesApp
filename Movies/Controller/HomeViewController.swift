@@ -15,6 +15,12 @@ class HomeViewController: UIViewController {
         nmv.translatesAutoresizingMaskIntoConstraints = false
         return nmv
     }()
+    
+    let tvCategoryView: TvCategoryView = {
+       let tcv = TvCategoryView()
+        tcv.translatesAutoresizingMaskIntoConstraints = false
+        return tcv
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +32,13 @@ class HomeViewController: UIViewController {
     func setupView() {
         view.backgroundColor = UIColor.init(white:0.2,alpha:1)
         view.addSubview(newMoviesView)
+        view.addSubview(tvCategoryView)
     }
 
     func setupConstraints() {
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[v0]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":newMoviesView]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-74-[v0(250)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":newMoviesView]))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-74-[v0(250)]-10-[v1(200)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":newMoviesView,"v1":tvCategoryView]))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[v0]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvCategoryView]))
     }
     
     func setupNavigationBar() {
