@@ -1,5 +1,5 @@
 //
-//  TvCategoryViewCell.swift
+//  TvSerieViewCell.swift
 //  Movies
 //
 //  Created by Omar Thamri on 08/11/2019.
@@ -8,21 +8,20 @@
 
 import UIKit
 
-
-class TvCategoryViewCell: UICollectionViewCell {
+class TvSerieViewCell: UICollectionViewCell {
     
-    var tvCategory: Category? {
+    var tvSerie: TvSerie? {
         didSet {
-            if let name = tvCategory?.name  {
-                tvCategoryTitle.text = name
+            if let name = tvSerie?.name  {
+                tvSerieTitle.text = name
             }
-            if let imageName = tvCategory?.imageName {
-                tvCategoryImg.image = UIImage(named: imageName)
+            if let imageName = tvSerie?.imageName {
+                tvSerieImg.image = UIImage(named: imageName)
             }
         }
     }
     
-    let tvCategoryImg: UIImageView = {
+    let tvSerieImg: UIImageView = {
         let nmi = UIImageView()
         nmi.translatesAutoresizingMaskIntoConstraints = false
         nmi.contentMode = .scaleToFill
@@ -31,8 +30,8 @@ class TvCategoryViewCell: UICollectionViewCell {
         return nmi
     }()
     
-    let tvCategoryTitle: UILabel = {
-       let tcl = UILabel()
+    let tvSerieTitle: UILabel = {
+        let tcl = UILabel()
         tcl.textColor = UIColor.white
         tcl.textAlignment = .center
         tcl.font = UIFont.boldSystemFont(ofSize: 14)
@@ -52,14 +51,14 @@ class TvCategoryViewCell: UICollectionViewCell {
     
     func setupView() {
         backgroundColor = UIColor.init(white: 0.2, alpha: 1)
-        addSubview(tvCategoryImg)
-        addSubview(tvCategoryTitle)
+        addSubview(tvSerieImg)
+        addSubview(tvSerieTitle)
     }
     
     func setupConstraints() {
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]-9-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvCategoryImg]))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0(120)]-3-[v1]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvCategoryImg,"v1":tvCategoryTitle]))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]-9-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvCategoryTitle]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]-9-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvSerieImg]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0(120)]-3-[v1]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvSerieImg,"v1":tvSerieTitle]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]-9-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvSerieTitle]))
     }
     
 }
