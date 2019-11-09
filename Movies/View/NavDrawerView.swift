@@ -12,7 +12,7 @@ class NavDrawerView: UIView {
     
     let navDrawerCvId = "navDrawerCvId"
     var homeViewController: HomeViewController?
-    let menuItems = [Menu(name: "Home",imageName: "home"),Menu(name: "Account",imageName: "account"),Menu(name: "Bookings",imageName: "booking"),Menu(name: "Transactions",imageName: "transaction"),Menu(name: "Wallet",imageName: "wallet"),Menu(name: "Messages",imageName: "message"),Menu(name: "Settings",imageName: "setting"),Menu(name: "Logout",imageName: "logout")]
+    let menuItems = [Menu(name: "Home",imageName: "home"),Menu(name: "Movies",imageName: "movies"),Menu(name: "TV Series",imageName: "tvseries"),Menu(name: "Favorite",imageName: "favorite"),Menu(name: "Profile",imageName: "account"),Menu(name: "Settings",imageName: "setting"),Menu(name: "Logout",imageName: "logout")]
     
     var headerView: UIView = {
         var hv = UIView()
