@@ -1,0 +1,26 @@
+//
+//  CloseDrawerView.swift
+//  Movies
+//
+//  Created by Omar Thamri on 09/11/2019.
+//  Copyright © 2019 MACBOOK PRO RETINA. All rights reserved.
+//
+
+import UIKit
+
+class CloseDrawerView: UIView {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupView() {
+        backgroundColor = UIColor.init(white: 0.5, alpha: 0.5)
+    }
+    
+}

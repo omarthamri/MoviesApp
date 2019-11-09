@@ -27,6 +27,30 @@ class HomeViewController: UIViewController {
         tcv.translatesAutoresizingMaskIntoConstraints = false
         return tcv
     }()
+    var selectedItem: Int?
+    var leftAnchor: NSLayoutConstraint?
+    var rightAnchor: NSLayoutConstraint?
+    var logoutTopAnchor: NSLayoutConstraint?
+    var alphaViewTopAnchor: NSLayoutConstraint?
+    lazy var navDrawerView : NavDrawerView = {
+        let ndv = NavDrawerView()
+        ndv.translatesAutoresizingMaskIntoConstraints = false
+        ndv.homeViewController = self
+        return ndv
+    }()
+    lazy var closeDrawerView : CloseDrawerView = {
+        let ndv = CloseDrawerView()
+        ndv.translatesAutoresizingMaskIntoConstraints = false
+        let viewTapped = UITapGestureRecognizer(target: self, action: #selector(closeNavDrawer))
+        ndv.isUserInteractionEnabled = true
+        ndv.addGestureRecognizer(viewTapped)
+        return ndv
+    }()
+    
+    var widthNavDrawer: CGFloat?
+    var widthCloseNavDrawer: CGFloat?
+    
+    let currentWindow: UIWindow? = UIApplication.shared.keyWindow
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,13 +64,27 @@ class HomeViewController: UIViewController {
         view.addSubview(newMoviesView)
         view.addSubview(tvCategoryView)
         view.addSubview(tvSerieView)
+        currentWindow?.addSubview(navDrawerView)
+        currentWindow?.addSubview(closeDrawerView)
     }
 
     func setupConstraints() {
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[v0]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":newMoviesView]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-74-[v0(250)]-10-[v1(170)]-10-[v2(170)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":newMoviesView,"v1":tvCategoryView,"v2":tvSerieView]))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-74-[v0(250)]-15-[v1(170)]-15-[v2(170)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":newMoviesView,"v1":tvCategoryView,"v2":tvSerieView]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[v0]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvCategoryView]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[v0]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvSerieView]))
+        widthNavDrawer = (currentWindow?.frame.width)! * 2 / 3
+        widthCloseNavDrawer = (currentWindow?.frame.width)! / 3
+        navDrawerView.widthAnchor.constraint(equalToConstant: widthNavDrawer!).isActive = true
+        navDrawerView.heightAnchor.constraint(equalTo: (currentWindow?.heightAnchor)!).isActive = true
+        leftAnchor = navDrawerView.leftAnchor.constraint(equalTo: (currentWindow?.leftAnchor)!,constant: -widthNavDrawer!)
+        leftAnchor?.isActive = true
+        navDrawerView.topAnchor.constraint(equalTo: (currentWindow?.topAnchor)!).isActive = true
+        closeDrawerView.widthAnchor.constraint(equalToConstant: widthCloseNavDrawer!).isActive = true
+        closeDrawerView.heightAnchor.constraint(equalTo: (currentWindow?.heightAnchor)!).isActive = true
+        rightAnchor = closeDrawerView.rightAnchor.constraint(equalTo: (currentWindow?.rightAnchor)!,constant: widthCloseNavDrawer!)
+        rightAnchor?.isActive = true
+        closeDrawerView.topAnchor.constraint(equalTo: (currentWindow?.topAnchor)!).isActive = true
     }
     
     func setupNavigationBar() {
@@ -62,7 +100,24 @@ class HomeViewController: UIViewController {
     }
     
     @objc func showNavigationDrawer() {
+        UIApplication.shared.keyWindow?.windowLevel = UIWindowLevelStatusBar
+        leftAnchor?.constant = 0
+        rightAnchor?.constant = 0
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: {
+            self.currentWindow?.layoutIfNeeded()
+            self.currentWindow?.updateConstraints()
+            self.currentWindow?.setNeedsLayout()
+            self.view.layoutIfNeeded()
+            self.view.setNeedsLayout()
+        })
         
+    }
+    
+    @objc func closeNavDrawer() {
+        UIApplication.shared.keyWindow?.windowLevel = UIWindowLevelNormal
+        leftAnchor?.constant = -widthNavDrawer!
+        rightAnchor?.constant = widthCloseNavDrawer!
+        self.currentWindow?.layoutIfNeeded()
     }
 
 }
