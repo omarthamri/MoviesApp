@@ -10,6 +10,7 @@ import UIKit
 
 class TvCategoryView: UIView {
     
+    var homeViewController: HomeViewController?
     let tvCategoryViewCellId = "tvCategoryViewCellId"
     var tvCategories = [Category(name: "Horror",imageName: "horror"),Category(name: "Action",imageName: "action"),Category(name: "Comedy",imageName: "comedy")]
     
@@ -22,13 +23,14 @@ class TvCategoryView: UIView {
         return tcl
     }()
     
-    let viewAllLbl: UILabel = {
-        let tcl = UILabel()
-        tcl.text = "View All"
-        tcl.textColor = UIColor.orange
-        tcl.textAlignment = .right
-        tcl.font = UIFont.boldSystemFont(ofSize: 16)
+    lazy var viewAllLbl: UIButton = {
+        let tcl = UIButton()
+        tcl.setTitle("View All", for: .normal)
+        tcl.setTitleColor(UIColor.orange, for: .normal)
+        tcl.contentHorizontalAlignment = .right
+        tcl.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         tcl.translatesAutoresizingMaskIntoConstraints = false
+        tcl.addTarget(self, action: #selector(viewAll), for: .touchUpInside)
         return tcl
     }()
     
@@ -66,6 +68,10 @@ class TvCategoryView: UIView {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":viewAllLbl]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-2-[v0(18)]-10-[v1]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":viewAllLbl,"v1":tvCategoryCollectionView]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvCategoryCollectionView]))
+    }
+    
+    @objc func viewAll() {
+        homeViewController?.displayListTvCategory()
     }
     
     

@@ -26,6 +26,7 @@
 		48E62C702376BD18004559D2 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E62C6F2376BD18004559D2 /* MenuCollectionViewCell.swift */; };
 		48E62C722376BD80004559D2 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E62C712376BD80004559D2 /* Menu.swift */; };
 		48E62C742376BEF1004559D2 /* CloseDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E62C732376BEF1004559D2 /* CloseDrawerView.swift */; };
+		48E62C762376F447004559D2 /* TvCategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E62C752376F447004559D2 /* TvCategoryListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		48E62C6F2376BD18004559D2 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		48E62C712376BD80004559D2 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		48E62C732376BEF1004559D2 /* CloseDrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseDrawerView.swift; sourceTree = "<group>"; };
+		48E62C752376F447004559D2 /* TvCategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvCategoryListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				48A670BE23732BAF00B58991 /* HomeViewController.swift */,
+				48E62C752376F447004559D2 /* TvCategoryListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48E62C762376F447004559D2 /* TvCategoryListViewController.swift in Sources */,
 				48E62C742376BEF1004559D2 /* CloseDrawerView.swift in Sources */,
 				48385C462375D078001B8909 /* TvCategoryView.swift in Sources */,
 				48A670BF23732BAF00B58991 /* HomeViewController.swift in Sources */,

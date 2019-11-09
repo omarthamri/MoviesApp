@@ -16,8 +16,9 @@ class HomeViewController: UIViewController {
         return nmv
     }()
     
-    let tvCategoryView: TvCategoryView = {
+    lazy var tvCategoryView: TvCategoryView = {
        let tcv = TvCategoryView()
+        tcv.homeViewController = self
         tcv.translatesAutoresizingMaskIntoConstraints = false
         return tcv
     }()
@@ -118,6 +119,11 @@ class HomeViewController: UIViewController {
         leftAnchor?.constant = -widthNavDrawer!
         rightAnchor?.constant = widthCloseNavDrawer!
         self.currentWindow?.layoutIfNeeded()
+    }
+    
+    func displayListTvCategory() {
+        let tvCategoryListViewController = TvCategoryListViewController()
+        navigationController?.pushViewController(tvCategoryListViewController, animated: true)
     }
 
 }
