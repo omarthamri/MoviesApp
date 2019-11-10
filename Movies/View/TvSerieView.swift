@@ -12,7 +12,7 @@ class TvSerieView: UIView {
     
     let tvSeriesViewCellId = "tvSeriesViewCellId"
     var tvSeries = [TvSerie(name: "Suits",imageName: "suits"),TvSerie(name: "La casa de papel",imageName: "La_Casa"),TvSerie(name: "Community",imageName: "community")]
-    
+    var homeViewController: HomeViewController?
     let tvSerieLbl: UILabel = {
         let tcl = UILabel()
         tcl.text = "TV Series"
@@ -22,13 +22,14 @@ class TvSerieView: UIView {
         return tcl
     }()
     
-    let viewAllLbl: UILabel = {
-        let tcl = UILabel()
-        tcl.text = "View All"
-        tcl.textColor = UIColor.orange
-        tcl.textAlignment = .right
-        tcl.font = UIFont.boldSystemFont(ofSize: 16)
+    lazy var viewAllLbl: UIButton = {
+        let tcl = UIButton()
+        tcl.setTitle("View All", for: .normal)
+        tcl.setTitleColor(UIColor.orange, for: .normal)
+        tcl.contentHorizontalAlignment = .right
+        tcl.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         tcl.translatesAutoresizingMaskIntoConstraints = false
+        tcl.addTarget(self, action: #selector(viewAll), for: .touchUpInside)
         return tcl
     }()
     
@@ -67,7 +68,9 @@ class TvSerieView: UIView {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-2-[v0(18)]-10-[v1]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":viewAllLbl,"v1":tvSerieCollectionView]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvSerieCollectionView]))
     }
-    
+    @objc func viewAll() {
+        homeViewController?.displayListTvSerie()
+    }
     
 }
 

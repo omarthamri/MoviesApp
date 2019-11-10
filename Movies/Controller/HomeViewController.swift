@@ -23,9 +23,10 @@ class HomeViewController: UIViewController {
         return tcv
     }()
     
-    let tvSerieView: TvSerieView = {
+    lazy var tvSerieView: TvSerieView = {
         let tcv = TvSerieView()
         tcv.translatesAutoresizingMaskIntoConstraints = false
+        tcv.homeViewController = self
         return tcv
     }()
     var selectedItem: Int?
@@ -124,6 +125,11 @@ class HomeViewController: UIViewController {
     func displayListTvCategory() {
         let tvCategoryListViewController = TvCategoryListViewController()
         navigationController?.pushViewController(tvCategoryListViewController, animated: true)
+    }
+    
+    func displayListTvSerie() {
+        let tvSerieListViewController = TvSerieListViewController()
+        navigationController?.pushViewController(tvSerieListViewController, animated: true)
     }
 
 }
