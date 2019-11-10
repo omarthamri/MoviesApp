@@ -10,9 +10,16 @@ import UIKit
 
 class NewMoviesCollectionViewCell: UICollectionViewCell {
     
+    var newMovie: Movie? {
+        didSet {
+            if let imageName = newMovie?.imageName {
+                newMoviesImg.image = UIImage(named: imageName)
+            }
+        }
+    }
+    
     let newMoviesImg: UIImageView = {
        let nmi = UIImageView()
-        nmi.image = UIImage(named: "limiteless")
         nmi.translatesAutoresizingMaskIntoConstraints = false
         nmi.contentMode = .scaleToFill
         return nmi

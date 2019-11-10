@@ -10,8 +10,9 @@ import UIKit
 
 class NewMoviesView: UIView {
     
-    let newMoviesCellId = "newMoviesCellId"
     
+    let newMoviesCellId = "newMoviesCellId"
+    let newMovies = [Movie(name: "Limiteless",imageName: "limiteless"),Movie(name: "Hunger Games",imageName: "hunger_games"),Movie(name: "Avengers",imageName: "avengers"),Movie(name: "X Men",imageName: "x_men")]
     lazy var newMoviesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -62,11 +63,12 @@ class NewMoviesView: UIView {
 
 extension NewMoviesView: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return newMovies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: newMoviesCellId, for: indexPath) as! NewMoviesCollectionViewCell
+        cell.newMovie = newMovies[indexPath.item]
         return cell
     }
     
