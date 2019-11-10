@@ -11,7 +11,7 @@ import UIKit
 class TvSerieListViewController: UIViewController {
     
     let TvSerieListViewCellId = "TvSerieListViewCellId"
-    var tvseries = [TvSerie(name: "Suits",imageName: "suits"),TvSerie(name: "La casa de papel",imageName: "La_Casa"),TvSerie(name: "Community",imageName: "community"),TvSerie(name: "Suits",imageName: "suits"),TvSerie(name: "La casa de papel",imageName: "La_Casa"),TvSerie(name: "Community",imageName: "community"),TvSerie(name: "Suits",imageName: "suits"),TvSerie(name: "La casa de papel",imageName: "La_Casa"),TvSerie(name: "Community",imageName: "community"),TvSerie(name: "Suits",imageName: "suits"),TvSerie(name: "La casa de papel",imageName: "La_Casa"),TvSerie(name: "Community",imageName: "community")]
+    var tvseries = [TvSerie(name: "Suits",imageName: "suits"),TvSerie(name: "La casa de papel",imageName: "La_Casa"),TvSerie(name: "Community",imageName: "community"),TvSerie(name: "Vikings",imageName: "vikings"),TvSerie(name: "Mad Men",imageName: "mad_men"),TvSerie(name: "Silicon Valley",imageName: "silicon_valley"),TvSerie(name: "Game Of Thrones",imageName: "Game_of_Thrones"),TvSerie(name: "How I Met Your Mother",imageName: "himym"),TvSerie(name: "Big Bang Theory",imageName: "big_bang_theory")]
     
     lazy var tvserieListCV: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -69,7 +69,7 @@ extension TvSerieListViewController: UICollectionViewDelegate,UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (collectionView.frame.width/3) - 10, height: 150)
+        return CGSize(width: (collectionView.frame.width/3) - 10, height: 250)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
