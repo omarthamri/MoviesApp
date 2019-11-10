@@ -28,6 +28,7 @@ class TvCategoryListViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupConstraints()
+        setupNavigationBar()
     }
     
     func setupView() {
@@ -41,6 +42,16 @@ class TvCategoryListViewController: UIViewController {
     func setupConstraints() {
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[v0]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvCategoryListCV]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-74-[v0]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvCategoryListCV]))
+    }
+    
+    func setupNavigationBar() {
+        let rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: self, action: #selector(searchTapped))
+        rightBarButtonItem.tintColor = UIColor.white
+        navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
+    
+    @objc func searchTapped() {
+        
     }
     
     
