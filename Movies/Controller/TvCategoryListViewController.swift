@@ -11,6 +11,7 @@ import UIKit
 class TvCategoryListViewController: UIViewController {
     
     let TvCategoryListViewCellId = "TvCategoryListViewCellId"
+    var tvCategories = [Category(name: "Horror",imageName: "horror"),Category(name: "Action",imageName: "action"),Category(name: "Comedy",imageName: "comedy"),Category(name: "Science Fiction",imageName: "science_fiction"),Category(name: "Drama",imageName: "drama")]
     
     lazy var tvCategoryListCV: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -34,12 +35,12 @@ class TvCategoryListViewController: UIViewController {
         navigationItem.title = "TV Category"
         view.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
         view.addSubview(tvCategoryListCV)
-        tvCategoryListCV.register(UICollectionViewCell.self, forCellWithReuseIdentifier: TvCategoryListViewCellId)
+        tvCategoryListCV.register(TvCategoryListViewCell.self, forCellWithReuseIdentifier: TvCategoryListViewCellId)
     }
     
     func setupConstraints() {
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[v0]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvCategoryListCV]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-10-[v0]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvCategoryListCV]))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-74-[v0]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvCategoryListCV]))
     }
     
     
@@ -47,12 +48,12 @@ class TvCategoryListViewController: UIViewController {
 
 extension TvCategoryListViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return tvCategories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TvCategoryListViewCellId, for: indexPath)
-        cell.backgroundColor = UIColor.red
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TvCategoryListViewCellId, for: indexPath) as! TvCategoryListViewCell
+        cell.tvCategory = tvCategories[indexPath.item]
         return cell
     }
     
