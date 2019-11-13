@@ -120,6 +120,10 @@ class HomeViewController: UIViewController {
         leftAnchor?.constant = -widthNavDrawer!
         rightAnchor?.constant = widthCloseNavDrawer!
         self.currentWindow?.layoutIfNeeded()
+        if selectedItem == 1 {
+            let moviesViewController = MoviesViewController()
+            navigationController?.pushViewController(moviesViewController, animated: false)
+        }
     }
     
     func displayListTvCategory() {

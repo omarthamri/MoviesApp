@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		482EB1E8237C565A00B21F7B /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482EB1E7237C565A00B21F7B /* MoviesViewController.swift */; };
 		48385C422375C024001B8909 /* NewMoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48385C412375C024001B8909 /* NewMoviesView.swift */; };
 		48385C442375C5F8001B8909 /* NewMoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48385C432375C5F8001B8909 /* NewMoviesCollectionViewCell.swift */; };
 		48385C462375D078001B8909 /* TvCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48385C452375D078001B8909 /* TvCategoryView.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		482EB1E7237C565A00B21F7B /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 		48385C412375C024001B8909 /* NewMoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMoviesView.swift; sourceTree = "<group>"; };
 		48385C432375C5F8001B8909 /* NewMoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMoviesCollectionViewCell.swift; sourceTree = "<group>"; };
 		48385C452375D078001B8909 /* TvCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvCategoryView.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				48A670BE23732BAF00B58991 /* HomeViewController.swift */,
 				48E62C752376F447004559D2 /* TvCategoryListViewController.swift */,
 				48C8F3DD237871AC001A2F5A /* TvSerieListViewController.swift */,
+				482EB1E7237C565A00B21F7B /* MoviesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				48C8F3E0237872BE001A2F5A /* TvSerieListViewCell.swift in Sources */,
 				48385C462375D078001B8909 /* TvCategoryView.swift in Sources */,
 				48A670BF23732BAF00B58991 /* HomeViewController.swift in Sources */,
+				482EB1E8237C565A00B21F7B /* MoviesViewController.swift in Sources */,
 				48E62C722376BD80004559D2 /* Menu.swift in Sources */,
 				48A670C523732BAF00B58991 /* Movies.xcdatamodeld in Sources */,
 				48E62C6E2376BCB9004559D2 /* NavDrawerView.swift in Sources */,

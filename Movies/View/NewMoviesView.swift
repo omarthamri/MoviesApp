@@ -15,7 +15,7 @@ class NewMoviesView: UIView {
     let newMovies = [Movie(name: "Limiteless",imageName: "limiteless"),Movie(name: "Hunger Games",imageName: "hunger_games"),Movie(name: "Avengers",imageName: "avengers"),Movie(name: "X Men",imageName: "x_men")]
     lazy var newMoviesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection =  .horizontal
         let nmcv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         nmcv.dataSource = self
         nmcv.delegate = self
