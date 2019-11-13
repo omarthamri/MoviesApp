@@ -9,6 +9,20 @@
 import UIKit
 
 class MoviesViewController: UIViewController {
+    
+    let MoviesListCellId = "MoviesListCellId"
+    var movies = [Movie(name: "Limitless",imageName: "limiteless"),Movie(name: "Hunger Games",imageName: "hunger_games"),Movie(name: "Avengers",imageName: "avengers"),Movie(name: "X-Men",imageName: "x_men"),Movie(name: "I Am Legend",imageName: "I_Am_Legend"),Movie(name: "Matrix",imageName: "Matrix"),Movie(name: "We're The Millers",imageName: "were_the_millers"),Movie(name: "Hangover",imageName: "Hangover"),Movie(name: "Wolf Of Wall Street",imageName: "wolf_wall_street")]
+    
+    lazy var movieListCV: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        let tclc = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        tclc.delegate = self
+        tclc.dataSource = self
+        tclc.translatesAutoresizingMaskIntoConstraints = false
+        tclc.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
+        return tclc
+    }()
     var selectedItem: Int?
     var leftAnchor: NSLayoutConstraint?
     var rightAnchor: NSLayoutConstraint?
@@ -42,6 +56,8 @@ class MoviesViewController: UIViewController {
     }
     
     func setupView() {
+        view.addSubview(movieListCV)
+        movieListCV.register(MoviesListViewCell.self, forCellWithReuseIdentifier: MoviesListCellId)
         navigationController?.navigationBar.tintColor = .white
         navigationItem.title = "Movies"
         view.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
@@ -50,6 +66,8 @@ class MoviesViewController: UIViewController {
     }
     
     func setupConstraints() {
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[v0]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":movieListCV]))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-74-[v0]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":movieListCV]))
         widthNavDrawer = (currentWindow?.frame.width)! * 2 / 3
         widthCloseNavDrawer = (currentWindow?.frame.width)! / 3
         navDrawerView.widthAnchor.constraint(equalToConstant: widthNavDrawer!).isActive = true
@@ -107,6 +125,34 @@ class MoviesViewController: UIViewController {
             navigationController?.pushViewController(moviesViewController, animated: false)
         }
     }
+    
+    
+}
+
+extension MoviesViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return movies.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoviesListCellId, for: indexPath) as! MoviesListViewCell
+        cell.movie = movies[indexPath.item]
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (collectionView.frame.width/3) - 10, height: 250)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
+    
+    
     
     
 }
