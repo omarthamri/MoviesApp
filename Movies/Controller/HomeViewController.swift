@@ -120,7 +120,10 @@ class HomeViewController: UIViewController {
         leftAnchor?.constant = -widthNavDrawer!
         rightAnchor?.constant = widthCloseNavDrawer!
         self.currentWindow?.layoutIfNeeded()
-        if selectedItem == 1 {
+        if selectedItem == 0 {
+            let homeViewContoller = HomeViewController()
+            navigationController?.pushViewController(homeViewContoller, animated: false)
+        } else if selectedItem == 1 {
             let moviesViewController = MoviesViewController()
             navigationController?.pushViewController(moviesViewController, animated: false)
         }

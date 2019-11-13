@@ -12,6 +12,7 @@ class NavDrawerView: UIView {
     
     let navDrawerCvId = "navDrawerCvId"
     var homeViewController: HomeViewController?
+    var moviesViewController: MoviesViewController?
     let menuItems = [Menu(name: "Home",imageName: "home"),Menu(name: "Movies",imageName: "movies"),Menu(name: "TV Series",imageName: "tvseries"),Menu(name: "Favorite",imageName: "favorite"),Menu(name: "Profile",imageName: "account"),Menu(name: "Settings",imageName: "setting"),Menu(name: "Logout",imageName: "logout")]
     
     var headerView: UIView = {
@@ -111,6 +112,9 @@ extension NavDrawerView: UICollectionViewDelegate,UICollectionViewDataSource,UIC
         if homeViewController != nil {
             homeViewController?.selectedItem = indexPath.item
             homeViewController?.closeNavDrawer()
+        } else if moviesViewController != nil { 
+            moviesViewController?.selectedItem = indexPath.item
+            moviesViewController?.closeNavDrawer()
         }
     }
     
