@@ -126,6 +126,9 @@ class HomeViewController: UIViewController {
         } else if selectedItem == 1 {
             let moviesViewController = MoviesViewController()
             navigationController?.pushViewController(moviesViewController, animated: false)
+        } else if selectedItem == 2 {
+            let tvSerieListViewController = TvSerieListViewController()
+            navigationController?.pushViewController(tvSerieListViewController, animated: false)
         }
     }
     
