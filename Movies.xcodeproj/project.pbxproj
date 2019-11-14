@@ -26,6 +26,7 @@
 		48A670E023732BAF00B58991 /* MoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A670DF23732BAF00B58991 /* MoviesUITests.swift */; };
 		48BC4D20237DCAE60049A7EC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BC4D1F237DCAE60049A7EC /* ProfileViewController.swift */; };
 		48BC4D22237DEDB10049A7EC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BC4D21237DEDB10049A7EC /* ProfileView.swift */; };
+		48BC4D24237DF0C10049A7EC /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BC4D23237DF0C10049A7EC /* FavouriteViewController.swift */; };
 		48C8F3DC23786875001A2F5A /* TvCategoryListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C8F3DB23786875001A2F5A /* TvCategoryListViewCell.swift */; };
 		48C8F3DE237871AC001A2F5A /* TvSerieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C8F3DD237871AC001A2F5A /* TvSerieListViewController.swift */; };
 		48C8F3E0237872BE001A2F5A /* TvSerieListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C8F3DF237872BE001A2F5A /* TvSerieListViewCell.swift */; };
@@ -80,6 +81,7 @@
 		48A670E123732BAF00B58991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48BC4D1F237DCAE60049A7EC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		48BC4D21237DEDB10049A7EC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		48BC4D23237DF0C10049A7EC /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
 		48C8F3DB23786875001A2F5A /* TvCategoryListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvCategoryListViewCell.swift; sourceTree = "<group>"; };
 		48C8F3DD237871AC001A2F5A /* TvSerieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvSerieListViewController.swift; sourceTree = "<group>"; };
 		48C8F3DF237872BE001A2F5A /* TvSerieListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvSerieListViewCell.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				48C8F3DD237871AC001A2F5A /* TvSerieListViewController.swift */,
 				482EB1E7237C565A00B21F7B /* MoviesViewController.swift */,
 				48BC4D1F237DCAE60049A7EC /* ProfileViewController.swift */,
+				48BC4D23237DF0C10049A7EC /* FavouriteViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				482EB1E8237C565A00B21F7B /* MoviesViewController.swift in Sources */,
 				48E62C722376BD80004559D2 /* Menu.swift in Sources */,
 				48A670C523732BAF00B58991 /* Movies.xcdatamodeld in Sources */,
+				48BC4D24237DF0C10049A7EC /* FavouriteViewController.swift in Sources */,
 				48E62C6E2376BCB9004559D2 /* NavDrawerView.swift in Sources */,
 				48E62C702376BD18004559D2 /* MenuCollectionViewCell.swift in Sources */,
 				48385C442375C5F8001B8909 /* NewMoviesCollectionViewCell.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.swift
+//  FavouriteViewController.swift
 //  Movies
 //
 //  Created by Omar Thamri on 14/11/2019.
@@ -8,23 +8,17 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class FavouriteViewController: UIViewController {
     
     var selectedItem: Int?
     var leftAnchor: NSLayoutConstraint?
     var rightAnchor: NSLayoutConstraint?
     var logoutTopAnchor: NSLayoutConstraint?
     var alphaViewTopAnchor: NSLayoutConstraint?
-    lazy var  profileView: ProfileView = {
-        var av = ProfileView()
-        av.profileViewController = self
-        av.translatesAutoresizingMaskIntoConstraints = false
-        return av
-    }()
     lazy var navDrawerView : NavDrawerView = {
         let ndv = NavDrawerView()
         ndv.translatesAutoresizingMaskIntoConstraints = false
-        ndv.profileViewController = self
+        ndv.favouriteViewController = self
         return ndv
     }()
     lazy var closeDrawerView : CloseDrawerView = {
@@ -35,6 +29,7 @@ class ProfileViewController: UIViewController {
         ndv.addGestureRecognizer(viewTapped)
         return ndv
     }()
+    
     var widthNavDrawer: CGFloat?
     var widthCloseNavDrawer: CGFloat?
     
@@ -49,15 +44,13 @@ class ProfileViewController: UIViewController {
     
     func setupView() {
         navigationController?.navigationBar.tintColor = .white
+        navigationItem.title = "Favorite"
         view.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
         currentWindow?.addSubview(navDrawerView)
         currentWindow?.addSubview(closeDrawerView)
-        view.addSubview(profileView)
     }
     
     func setupConstraints() {
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":profileView]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-64-[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":profileView]))
         widthNavDrawer = (currentWindow?.frame.width)! * 2 / 3
         widthCloseNavDrawer = (currentWindow?.frame.width)! / 3
         navDrawerView.widthAnchor.constraint(equalToConstant: widthNavDrawer!).isActive = true
@@ -73,15 +66,10 @@ class ProfileViewController: UIViewController {
     }
     
     func setupNavigationBar() {
-        navigationItem.title = "Profile"
-        navigationController?.navigationBar.barTintColor = UIColor.init(white:0.2,alpha:1)
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         let leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: self, action: #selector(showNavigationDrawer))
         leftBarButtonItem.tintColor = UIColor.white
         navigationItem.leftBarButtonItem = leftBarButtonItem
     }
-    
-    
     @objc func showNavigationDrawer() {
         UIApplication.shared.keyWindow?.windowLevel = UIWindowLevelStatusBar
         leftAnchor?.constant = 0
@@ -110,10 +98,10 @@ class ProfileViewController: UIViewController {
         } else if selectedItem == 2 {
             let tvSerieListViewController = TvSerieListViewController()
             navigationController?.pushViewController(tvSerieListViewController, animated: false)
-        }else if selectedItem == 3 {
+        } else if selectedItem == 3 {
             let favouriteViewController = FavouriteViewController()
             navigationController?.pushViewController(favouriteViewController, animated: false)
-        } else if selectedItem == 4 {
+        }else if selectedItem == 4 {
             let profileViewController = ProfileViewController()
             navigationController?.pushViewController(profileViewController, animated: false)
         }
