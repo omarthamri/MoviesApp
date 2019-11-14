@@ -15,6 +15,12 @@ class ProfileViewController: UIViewController {
     var rightAnchor: NSLayoutConstraint?
     var logoutTopAnchor: NSLayoutConstraint?
     var alphaViewTopAnchor: NSLayoutConstraint?
+    lazy var  profileView: ProfileView = {
+        var av = ProfileView()
+        av.profileViewController = self
+        av.translatesAutoresizingMaskIntoConstraints = false
+        return av
+    }()
     lazy var navDrawerView : NavDrawerView = {
         let ndv = NavDrawerView()
         ndv.translatesAutoresizingMaskIntoConstraints = false
@@ -46,9 +52,12 @@ class ProfileViewController: UIViewController {
         view.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
         currentWindow?.addSubview(navDrawerView)
         currentWindow?.addSubview(closeDrawerView)
+        view.addSubview(profileView)
     }
     
     func setupConstraints() {
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":profileView]))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-64-[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":profileView]))
         widthNavDrawer = (currentWindow?.frame.width)! * 2 / 3
         widthCloseNavDrawer = (currentWindow?.frame.width)! / 3
         navDrawerView.widthAnchor.constraint(equalToConstant: widthNavDrawer!).isActive = true
