@@ -1,34 +1,15 @@
 //
-//  ViewController.swift
+//  ProfileViewController.swift
 //  Movies
 //
-//  Created by Omar Thamri on 06/11/2019.
+//  Created by Omar Thamri on 14/11/2019.
 //  Copyright © 2019 MACBOOK PRO RETINA. All rights reserved.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class ProfileViewController: UIViewController {
     
-    let newMoviesView: NewMoviesView = {
-        let nmv = NewMoviesView()
-        nmv.translatesAutoresizingMaskIntoConstraints = false
-        return nmv
-    }()
-    
-    lazy var tvCategoryView: TvCategoryView = {
-       let tcv = TvCategoryView()
-        tcv.homeViewController = self
-        tcv.translatesAutoresizingMaskIntoConstraints = false
-        return tcv
-    }()
-    
-    lazy var tvSerieView: TvSerieView = {
-        let tcv = TvSerieView()
-        tcv.translatesAutoresizingMaskIntoConstraints = false
-        tcv.homeViewController = self
-        return tcv
-    }()
     var selectedItem: Int?
     var leftAnchor: NSLayoutConstraint?
     var rightAnchor: NSLayoutConstraint?
@@ -37,7 +18,7 @@ class HomeViewController: UIViewController {
     lazy var navDrawerView : NavDrawerView = {
         let ndv = NavDrawerView()
         ndv.translatesAutoresizingMaskIntoConstraints = false
-        ndv.homeViewController = self
+        ndv.profileViewController = self
         return ndv
     }()
     lazy var closeDrawerView : CloseDrawerView = {
@@ -48,12 +29,11 @@ class HomeViewController: UIViewController {
         ndv.addGestureRecognizer(viewTapped)
         return ndv
     }()
-    
     var widthNavDrawer: CGFloat?
     var widthCloseNavDrawer: CGFloat?
     
     let currentWindow: UIWindow? = UIApplication.shared.keyWindow
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -62,19 +42,13 @@ class HomeViewController: UIViewController {
     }
     
     func setupView() {
-        view.backgroundColor = UIColor.init(white:0.2,alpha:1)
-        view.addSubview(newMoviesView)
-        view.addSubview(tvCategoryView)
-        view.addSubview(tvSerieView)
+        navigationController?.navigationBar.tintColor = .white
+        view.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
         currentWindow?.addSubview(navDrawerView)
         currentWindow?.addSubview(closeDrawerView)
     }
-
+    
     func setupConstraints() {
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[v0]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":newMoviesView]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-74-[v0(250)]-15-[v1(170)]-15-[v2(170)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":newMoviesView,"v1":tvCategoryView,"v2":tvSerieView]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[v0]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvCategoryView]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[v0]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvSerieView]))
         widthNavDrawer = (currentWindow?.frame.width)! * 2 / 3
         widthCloseNavDrawer = (currentWindow?.frame.width)! / 3
         navDrawerView.widthAnchor.constraint(equalToConstant: widthNavDrawer!).isActive = true
@@ -90,16 +64,14 @@ class HomeViewController: UIViewController {
     }
     
     func setupNavigationBar() {
-        navigationItem.title = "Home"
+        navigationItem.title = "Profile"
         navigationController?.navigationBar.barTintColor = UIColor.init(white:0.2,alpha:1)
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         let leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: self, action: #selector(showNavigationDrawer))
         leftBarButtonItem.tintColor = UIColor.white
-        let rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "search"), style: .plain, target: self, action: #selector(showNavigationDrawer))
-        rightBarButtonItem.tintColor = UIColor.white
         navigationItem.leftBarButtonItem = leftBarButtonItem
-        navigationItem.rightBarButtonItem = rightBarButtonItem
     }
+    
     
     @objc func showNavigationDrawer() {
         UIApplication.shared.keyWindow?.windowLevel = UIWindowLevelStatusBar
@@ -135,15 +107,4 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func displayListTvCategory() {
-        let tvCategoryListViewController = TvCategoryListViewController()
-        navigationController?.pushViewController(tvCategoryListViewController, animated: true)
-    }
-    
-    func displayListTvSerie() {
-        let tvSerieListViewController = TvSerieListViewController()
-        navigationController?.pushViewController(tvSerieListViewController, animated: true)
-    }
-
 }
-

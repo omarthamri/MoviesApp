@@ -126,6 +126,9 @@ class MoviesViewController: UIViewController {
         } else if selectedItem == 2 {
             let tvSerieListViewController = TvSerieListViewController()
             navigationController?.pushViewController(tvSerieListViewController, animated: false)
+        } else if selectedItem == 4 {
+            let profileViewController = ProfileViewController()
+            navigationController?.pushViewController(profileViewController, animated: false)
         }
     }
     
