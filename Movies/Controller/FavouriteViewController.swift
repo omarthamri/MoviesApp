@@ -43,15 +43,17 @@ class FavouriteViewController: UIViewController {
         mb.setTitle("Movies", for: .normal)
         mb.setTitleColor(UIColor.white, for: .normal)
         mb.titleLabel?.textAlignment = .center
+        mb.addTarget(self, action: #selector(movieTapped), for: .touchUpInside)
         return mb
     }()
     
-    let tvSeriesBtn: UIButton = {
+    lazy var tvSeriesBtn: UIButton = {
         let mb = UIButton()
         mb.translatesAutoresizingMaskIntoConstraints = false
         mb.setTitle("TV Serie", for: .normal)
         mb.setTitleColor(UIColor.white, for: .normal)
         mb.titleLabel?.textAlignment = .center
+        mb.addTarget(self, action: #selector(tvSerieTapped), for: .touchUpInside)
         return mb
     }()
     
@@ -122,6 +124,15 @@ class FavouriteViewController: UIViewController {
         let leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: self, action: #selector(showNavigationDrawer))
         leftBarButtonItem.tintColor = UIColor.white
         navigationItem.leftBarButtonItem = leftBarButtonItem
+    }
+    
+    @objc func tvSerieTapped() {
+        whiteLine.isHidden = true
+        TvSerieWhiteLine.isHidden = false
+    }
+    @objc func movieTapped() {
+        TvSerieWhiteLine.isHidden = true
+        whiteLine.isHidden = false
     }
     @objc func showNavigationDrawer() {
         UIApplication.shared.keyWindow?.windowLevel = UIWindowLevelStatusBar
