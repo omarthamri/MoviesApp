@@ -10,6 +10,20 @@ import UIKit
 
 class FavouriteViewController: UIViewController {
     
+    let FavoriteMoviesCellId = "FavoriteMoviesCellId"
+    var movies = [Movie(name: "Hunger Games",imageName: "hunger_games"),Movie(name: "Hangover",imageName: "Hangover")]
+    var tvseries = [Movie(name: "Vikings",imageName: "vikings"),Movie(name: "Suits",imageName: "suits"),Movie(name: "Game Of Thrones",imageName: "Game_of_Thrones"),Movie(name: "La casa de papel",imageName: "La_Casa")]
+    lazy var FavoriteMoviesCV: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        let tclc = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        tclc.delegate = self
+        tclc.dataSource = self
+        tclc.translatesAutoresizingMaskIntoConstraints = false
+        tclc.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
+        return tclc
+    }()
+    var choice = 0
     var selectedItem: Int?
     var leftAnchor: NSLayoutConstraint?
     var rightAnchor: NSLayoutConstraint?
@@ -50,7 +64,7 @@ class FavouriteViewController: UIViewController {
     lazy var tvSeriesBtn: UIButton = {
         let mb = UIButton()
         mb.translatesAutoresizingMaskIntoConstraints = false
-        mb.setTitle("TV Serie", for: .normal)
+        mb.setTitle("TV Series", for: .normal)
         mb.setTitleColor(UIColor.white, for: .normal)
         mb.titleLabel?.textAlignment = .center
         mb.addTarget(self, action: #selector(tvSerieTapped), for: .touchUpInside)
@@ -85,6 +99,8 @@ class FavouriteViewController: UIViewController {
     }
     
     func setupView() {
+        view.addSubview(FavoriteMoviesCV)
+        FavoriteMoviesCV.register(FavouriteMovieCell.self, forCellWithReuseIdentifier: FavoriteMoviesCellId)
         navigationController?.navigationBar.tintColor = .white
         navigationItem.title = "Favorite"
         view.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
@@ -99,13 +115,14 @@ class FavouriteViewController: UIViewController {
     
     func setupConstraints() {
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":choiceView]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-64-[v0(75)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":choiceView]))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-64-[v0(75)]-20-[v1]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":choiceView,"v1":FavoriteMoviesCV]))
         choiceView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0(\(view.frame.width/2))]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":moviesBtn]))
         choiceView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]-1-[v1(1)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":moviesBtn,"v1":whiteLine]))
         choiceView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0(\(view.frame.width/2))]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":whiteLine]))
         choiceView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[v0(\(view.frame.width/2))]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvSeriesBtn]))
         choiceView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]-1-[v1(1)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvSeriesBtn,"v1":TvSerieWhiteLine]))
         choiceView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[v0(\(view.frame.width/2))]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":TvSerieWhiteLine]))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[v0]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":FavoriteMoviesCV]))
         widthNavDrawer = (currentWindow?.frame.width)! * 2 / 3
         widthCloseNavDrawer = (currentWindow?.frame.width)! / 3
         navDrawerView.widthAnchor.constraint(equalToConstant: widthNavDrawer!).isActive = true
@@ -129,10 +146,14 @@ class FavouriteViewController: UIViewController {
     @objc func tvSerieTapped() {
         whiteLine.isHidden = true
         TvSerieWhiteLine.isHidden = false
+        choice = 1
+        FavoriteMoviesCV.reloadData()
     }
     @objc func movieTapped() {
         TvSerieWhiteLine.isHidden = true
         whiteLine.isHidden = false
+        choice = 0
+        FavoriteMoviesCV.reloadData()
     }
     @objc func showNavigationDrawer() {
         UIApplication.shared.keyWindow?.windowLevel = UIWindowLevelStatusBar
@@ -172,3 +193,40 @@ class FavouriteViewController: UIViewController {
     }
     
 }
+
+extension FavouriteViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if choice == 1 {
+            return tvseries.count
+        }
+        return movies.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if choice == 1 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoriteMoviesCellId, for: indexPath) as! FavouriteMovieCell
+            cell.movie = tvseries[indexPath.item]
+            return cell
+        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoriteMoviesCellId, for: indexPath) as! FavouriteMovieCell
+        cell.movie = movies[indexPath.item]
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (collectionView.frame.width/3) - 10, height: 250)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
+    
+    
+    
+    
+}
+
