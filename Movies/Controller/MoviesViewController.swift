@@ -151,6 +151,7 @@ extension MoviesViewController: UICollectionViewDelegate,UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailMovieViewController = DetailMovieViewController()
+        detailMovieViewController.movieTitle = movies[indexPath.item].name
         navigationController?.pushViewController(detailMovieViewController, animated: true)
     }
     

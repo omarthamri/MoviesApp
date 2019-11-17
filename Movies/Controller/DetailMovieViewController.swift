@@ -11,6 +11,7 @@ import UIKit
 class DetailMovieViewController: UIViewController {
     
     let detailMovieCellId = "detailMovieCellId"
+    var movieTitle : String?
     lazy var detailMovieCV : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
        let dmcv = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -41,7 +42,7 @@ class DetailMovieViewController: UIViewController {
     
     func setupNavigationBar() {
         navigationController?.navigationBar.tintColor = .white
-        navigationItem.title = "Limitless"
+        navigationItem.title = movieTitle
     }
     
     
