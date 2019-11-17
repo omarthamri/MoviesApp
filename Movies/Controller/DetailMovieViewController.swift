@@ -22,7 +22,7 @@ class DetailMovieViewController: UIViewController {
     }
     
     func setupConstraints() {
-        
+         
     }
     
     func setupNavigationBar() {
