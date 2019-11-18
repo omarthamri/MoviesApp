@@ -146,6 +146,12 @@ extension TvSerieListViewController: UICollectionViewDelegate,UICollectionViewDa
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailMovieViewController = DetailMovieViewController()
+        detailMovieViewController.movieTitle = tvseries[indexPath.item].name
+        navigationController?.pushViewController(detailMovieViewController, animated: true)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (collectionView.frame.width/3) - 10, height: 250)
     }
