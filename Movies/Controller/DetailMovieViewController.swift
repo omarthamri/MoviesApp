@@ -32,7 +32,7 @@ class DetailMovieViewController: UIViewController {
     func setupView() {
         view.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
         view.addSubview(detailMovieCV)
-        detailMovieCV.register(VideoPlayerCollectionView.self, forCellWithReuseIdentifier: detailMovieCellId)
+        detailMovieCV.register(VideoPlayerCollectionViewCell.self, forCellWithReuseIdentifier: detailMovieCellId)
     }
     
     func setupConstraints() {
@@ -55,7 +55,7 @@ extension DetailMovieViewController: UICollectionViewDelegate,UICollectionViewDa
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: detailMovieCellId, for: indexPath) as! VideoPlayerCollectionView
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: detailMovieCellId, for: indexPath) as! VideoPlayerCollectionViewCell
         return cell
     }
     
