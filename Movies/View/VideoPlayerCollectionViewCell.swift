@@ -35,8 +35,17 @@ class VideoPlayerCollectionViewCell: UICollectionViewCell {
         label.text = "00:00"
         label.textColor = UIColor.white
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.font = UIFont.boldSystemFont(ofSize: 13)
         label.textAlignment = .right
+        return label
+    }()
+    
+    let currentTimeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "00:00"
+        label.textColor = UIColor.white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.boldSystemFont(ofSize: 13)
         return label
     }()
     
@@ -69,6 +78,7 @@ class VideoPlayerCollectionViewCell: UICollectionViewCell {
     func setupView() {
         
         setupPlayerView()
+        setupGradientLayer()
         controlsContainerView.frame = frame
         addSubview(controlsContainerView)
         controlsContainerView.addSubview(activityIndicatorView)
@@ -82,13 +92,18 @@ class VideoPlayerCollectionViewCell: UICollectionViewCell {
         backgroundColor = UIColor.black
         controlsContainerView.addSubview(videoLengthLabel)
         videoLengthLabel.rightAnchor.constraint(equalTo: rightAnchor,constant: -8).isActive = true
-        videoLengthLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        videoLengthLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        videoLengthLabel.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -2).isActive = true
+        videoLengthLabel.widthAnchor.constraint(equalToConstant: 50).isActive = true
         videoLengthLabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        controlsContainerView.addSubview(currentTimeLabel)
+        currentTimeLabel.leftAnchor.constraint(equalTo: leftAnchor,constant: 8).isActive = true
+        currentTimeLabel.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -2).isActive = true
+        currentTimeLabel.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        currentTimeLabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
         controlsContainerView.addSubview(videoSlider)
         videoSlider.rightAnchor.constraint(equalTo: videoLengthLabel.leftAnchor).isActive = true
         videoSlider.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        videoSlider.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        videoSlider.leftAnchor.constraint(equalTo: currentTimeLabel.rightAnchor).isActive = true
         videoSlider.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
@@ -102,6 +117,17 @@ class VideoPlayerCollectionViewCell: UICollectionViewCell {
             player?.play()
             isPlaying = true
             player?.addObserver(self, forKeyPath: "currentItem.loadedTimeRanges", options: .new, context: nil)
+            let interval = CMTime(value: 1, timescale: 2)
+            player?.addPeriodicTimeObserver(forInterval: interval, queue: DispatchQueue.main, using: { (progrssTime) in
+                let seconds = CMTimeGetSeconds(progrssTime)
+                let secondsString = String(format: "%02d",Int(seconds.truncatingRemainder(dividingBy: 60)))
+                let minuteString = String(format: "%02d",Int(seconds / 60))
+                self.currentTimeLabel.text = "\(minuteString):\(secondsString)"
+                if let duration = self.player?.currentItem?.duration {
+                    let secondsDuration = CMTimeGetSeconds(duration)
+                    self.videoSlider.value = Float(seconds / secondsDuration)
+                }
+            })
         }
     }
     
@@ -125,6 +151,14 @@ class VideoPlayerCollectionViewCell: UICollectionViewCell {
                 
             })
         }
+    }
+    
+    func setupGradientLayer() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.colors = [UIColor.clear.cgColor,UIColor.black.cgColor]
+        gradientLayer.locations = [0.7,1.2]
+        controlsContainerView.layer.addSublayer(gradientLayer)
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
