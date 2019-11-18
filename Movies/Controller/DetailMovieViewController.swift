@@ -43,6 +43,14 @@ class DetailMovieViewController: UIViewController {
     func setupNavigationBar() {
         navigationController?.navigationBar.tintColor = .white
         navigationItem.title = movieTitle
+        navigationItem.hidesBackButton = true
+        let backBarButtonItem = UIBarButtonItem(image: UIImage(named: "backBtn"), style: .plain, target: self, action: #selector(backTapped))
+        backBarButtonItem.tintColor = UIColor.white
+        navigationItem.leftBarButtonItem = backBarButtonItem
+    }
+    
+    @objc func backTapped() {
+        navigationController?.popViewController(animated: true)
     }
     
     

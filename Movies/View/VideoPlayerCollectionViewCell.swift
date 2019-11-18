@@ -30,6 +30,26 @@ class VideoPlayerCollectionViewCell: UICollectionViewCell {
         return button
     }()
     
+    let videoLengthLabel: UILabel = {
+       let label = UILabel()
+        label.text = "00:00"
+        label.textColor = UIColor.white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.textAlignment = .right
+        return label
+    }()
+    
+    lazy var videoSlider: UISlider = {
+      let slider = UISlider()
+      slider.translatesAutoresizingMaskIntoConstraints = false
+      slider.minimumTrackTintColor = UIColor.red
+      slider.maximumTrackTintColor = UIColor.white
+      slider.setThumbImage(UIImage(named: "thumb"), for: .normal)
+        slider.addTarget(self, action: #selector(handleSlideChange), for: .valueChanged)
+      return slider
+    }()
+    
     let controlsContainerView: UIView = {
        let ccv = UIView()
         ccv.backgroundColor = UIColor.init(white: 0, alpha: 1 )
@@ -39,6 +59,7 @@ class VideoPlayerCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -46,6 +67,7 @@ class VideoPlayerCollectionViewCell: UICollectionViewCell {
     }
     
     func setupView() {
+        
         setupPlayerView()
         controlsContainerView.frame = frame
         addSubview(controlsContainerView)
@@ -58,8 +80,16 @@ class VideoPlayerCollectionViewCell: UICollectionViewCell {
         pausePlayButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
         pausePlayButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         backgroundColor = UIColor.black
-        
-        
+        controlsContainerView.addSubview(videoLengthLabel)
+        videoLengthLabel.rightAnchor.constraint(equalTo: rightAnchor,constant: -8).isActive = true
+        videoLengthLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        videoLengthLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        videoLengthLabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        controlsContainerView.addSubview(videoSlider)
+        videoSlider.rightAnchor.constraint(equalTo: videoLengthLabel.leftAnchor).isActive = true
+        videoSlider.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        videoSlider.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        videoSlider.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
     func setupPlayerView() {
@@ -86,11 +116,28 @@ class VideoPlayerCollectionViewCell: UICollectionViewCell {
         isPlaying = !isPlaying
     }
     
+    @objc func handleSlideChange() {
+        if let duration = player?.currentItem?.duration {
+            let seconds = CMTimeGetSeconds(duration)
+            let value = Float64(videoSlider.value) * seconds
+            let seekTime = CMTime(value: Int64(value), timescale: 1)
+            player?.seek(to: seekTime, completionHandler: { (completedSeek) in
+                
+            })
+        }
+    }
+    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "currentItem.loadedTimeRanges" {
             activityIndicatorView.stopAnimating()
             controlsContainerView.backgroundColor = UIColor.clear
             pausePlayButton.isHidden = false
+            if let duration = player?.currentItem?.duration {
+                let seconds = CMTimeGetSeconds(duration)
+                let secondsText = Int(seconds.truncatingRemainder(dividingBy: 60))
+                let minutesText = String(format:"%02d",Int(seconds) / 60)
+                videoLengthLabel.text = "\(minutesText):\(secondsText)"
+            }
         }
     }
     
