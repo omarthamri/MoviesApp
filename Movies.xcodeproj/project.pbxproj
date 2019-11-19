@@ -27,6 +27,8 @@
 		48A670D523732BAF00B58991 /* MoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A670D423732BAF00B58991 /* MoviesTests.swift */; };
 		48A670E023732BAF00B58991 /* MoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A670DF23732BAF00B58991 /* MoviesUITests.swift */; };
 		48B0B03823842E4300B7624C /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B0B03723842E4300B7624C /* StarView.swift */; };
+		48B0B03A238436AE00B7624C /* OverviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B0B039238436AE00B7624C /* OverviewCollectionViewCell.swift */; };
+		48B0B03C23843B9A00B7624C /* RelatedMoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B0B03B23843B9A00B7624C /* RelatedMoviesCollectionViewCell.swift */; };
 		48BC4D20237DCAE60049A7EC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BC4D1F237DCAE60049A7EC /* ProfileViewController.swift */; };
 		48BC4D22237DEDB10049A7EC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BC4D21237DEDB10049A7EC /* ProfileView.swift */; };
 		48BC4D24237DF0C10049A7EC /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BC4D23237DF0C10049A7EC /* FavouriteViewController.swift */; };
@@ -87,6 +89,8 @@
 		48A670DF23732BAF00B58991 /* MoviesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesUITests.swift; sourceTree = "<group>"; };
 		48A670E123732BAF00B58991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48B0B03723842E4300B7624C /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
+		48B0B039238436AE00B7624C /* OverviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCollectionViewCell.swift; sourceTree = "<group>"; };
+		48B0B03B23843B9A00B7624C /* RelatedMoviesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedMoviesCollectionViewCell.swift; sourceTree = "<group>"; };
 		48BC4D1F237DCAE60049A7EC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		48BC4D21237DEDB10049A7EC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		48BC4D23237DF0C10049A7EC /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
@@ -215,6 +219,8 @@
 				48D1EFBD2381D722003A3166 /* VideoPlayerCollectionViewCell.swift */,
 				4870EFC52383068B003D5381 /* InfoMovieCollectionViewCell.swift */,
 				48B0B03723842E4300B7624C /* StarView.swift */,
+				48B0B039238436AE00B7624C /* OverviewCollectionViewCell.swift */,
+				48B0B03B23843B9A00B7624C /* RelatedMoviesCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -373,6 +379,7 @@
 				48A670C523732BAF00B58991 /* Movies.xcdatamodeld in Sources */,
 				48BC4D24237DF0C10049A7EC /* FavouriteViewController.swift in Sources */,
 				48D1EFBE2381D722003A3166 /* VideoPlayerCollectionViewCell.swift in Sources */,
+				48B0B03A238436AE00B7624C /* OverviewCollectionViewCell.swift in Sources */,
 				48E62C6E2376BCB9004559D2 /* NavDrawerView.swift in Sources */,
 				48E62C702376BD18004559D2 /* MenuCollectionViewCell.swift in Sources */,
 				48385C442375C5F8001B8909 /* NewMoviesCollectionViewCell.swift in Sources */,
@@ -389,6 +396,7 @@
 				48C8F3E22378890C001A2F5A /* Movie.swift in Sources */,
 				48385C4C2375EC3E001B8909 /* TvSerieView.swift in Sources */,
 				48385C482375D8C4001B8909 /* TvCategoryViewCell.swift in Sources */,
+				48B0B03C23843B9A00B7624C /* RelatedMoviesCollectionViewCell.swift in Sources */,
 				48C8F3DC23786875001A2F5A /* TvCategoryListViewCell.swift in Sources */,
 				48385C4A2375DE7A001B8909 /* Category.swift in Sources */,
 				48C8F3DE237871AC001A2F5A /* TvSerieListViewController.swift in Sources */,
