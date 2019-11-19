@@ -75,7 +75,7 @@ extension DetailMovieViewController: UICollectionViewDelegate,UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.item == 1 {
-            return CGSize(width: collectionView.frame.width, height: 300)
+            return CGSize(width: collectionView.frame.width, height: 190)
         }
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.width * 9 / 16)
     }

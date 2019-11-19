@@ -47,6 +47,13 @@ class InfoMovieCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    let starView: StarView = {
+      let view = StarView()
+        view.backgroundColor = UIColor.clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -58,11 +65,11 @@ class InfoMovieCollectionViewCell: UICollectionViewCell {
     }
     
     func setupView() {
-       // backgroundColor = UIColor.blue
         addSubview(titleLabel)
         addSubview(typeLabel)
         addSubview(numberOfSeasonLabel)
         addSubview(numberOfViewsLabel)
+        addSubview(starView)
     }
     
     func setupConstraints() {
@@ -74,6 +81,9 @@ class InfoMovieCollectionViewCell: UICollectionViewCell {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":numberOfViewsLabel]))
         numberOfViewsLabel.bottomAnchor.constraint(equalTo: numberOfSeasonLabel.bottomAnchor).isActive = true
         numberOfViewsLabel.topAnchor.constraint(equalTo: numberOfSeasonLabel.topAnchor).isActive = true
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":starView]))
+        starView.topAnchor.constraint(equalTo: numberOfViewsLabel.bottomAnchor,constant: 20).isActive = true
+        starView.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
     
 }

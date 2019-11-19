@@ -26,6 +26,7 @@
 		48A670CA23732BAF00B58991 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A670C823732BAF00B58991 /* LaunchScreen.storyboard */; };
 		48A670D523732BAF00B58991 /* MoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A670D423732BAF00B58991 /* MoviesTests.swift */; };
 		48A670E023732BAF00B58991 /* MoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A670DF23732BAF00B58991 /* MoviesUITests.swift */; };
+		48B0B03823842E4300B7624C /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B0B03723842E4300B7624C /* StarView.swift */; };
 		48BC4D20237DCAE60049A7EC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BC4D1F237DCAE60049A7EC /* ProfileViewController.swift */; };
 		48BC4D22237DEDB10049A7EC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BC4D21237DEDB10049A7EC /* ProfileView.swift */; };
 		48BC4D24237DF0C10049A7EC /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BC4D23237DF0C10049A7EC /* FavouriteViewController.swift */; };
@@ -85,6 +86,7 @@
 		48A670DB23732BAF00B58991 /* MoviesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A670DF23732BAF00B58991 /* MoviesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesUITests.swift; sourceTree = "<group>"; };
 		48A670E123732BAF00B58991 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48B0B03723842E4300B7624C /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
 		48BC4D1F237DCAE60049A7EC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		48BC4D21237DEDB10049A7EC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		48BC4D23237DF0C10049A7EC /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				48494E6B23809602002C4ED6 /* FavouriteMovieCell.swift */,
 				48D1EFBD2381D722003A3166 /* VideoPlayerCollectionViewCell.swift */,
 				4870EFC52383068B003D5381 /* InfoMovieCollectionViewCell.swift */,
+				48B0B03723842E4300B7624C /* StarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				48385C422375C024001B8909 /* NewMoviesView.swift in Sources */,
 				482EB1EE237C5ECC00B21F7B /* MoviesListViewCell.swift in Sources */,
 				48A670BD23732BAF00B58991 /* AppDelegate.swift in Sources */,
+				48B0B03823842E4300B7624C /* StarView.swift in Sources */,
 				48BC4D20237DCAE60049A7EC /* ProfileViewController.swift in Sources */,
 				48BC4D22237DEDB10049A7EC /* ProfileView.swift in Sources */,
 				48D1EFBC2381CA89003A3166 /* DetailMovieViewController.swift in Sources */,
