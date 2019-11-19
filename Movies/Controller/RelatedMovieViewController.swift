@@ -34,7 +34,7 @@ class RelatedMovieViewController: UIViewController {
     func setupView() {
         view.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
         view.addSubview(tvserieListCV)
-        tvserieListCV.register(RelatedMovieListCell.self, forCellWithReuseIdentifier: relatedMovieCellId)
+        tvserieListCV.register(RelatedMovieListCell.self, forCellWithReuseIdentifier: relatedMovieCellId) 
     }
     
     func setupConstraints() {
