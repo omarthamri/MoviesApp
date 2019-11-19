@@ -10,6 +10,8 @@ import UIKit
 
 class RelatedMoviesCollectionViewCell: UICollectionViewCell {
     
+    let relatedMoviesCellId = "relatedMoviesCellId"
+    var tvSeries = [TvSerie(name: "Mad Men",imageName: "mad_men"),TvSerie(name: "Silicon Valley",imageName: "silicon_valley"),TvSerie(name: "Community",imageName: "community")]
     let relatedMoviesLabel: UILabel = {
         let label = UILabel()
         label.text = "Related TV Series"
@@ -29,6 +31,16 @@ class RelatedMoviesCollectionViewCell: UICollectionViewCell {
         return tcl
     }()
     
+    lazy var tvSerieCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let tccv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        tccv.translatesAutoresizingMaskIntoConstraints = false
+        tccv.delegate = self
+        tccv.dataSource = self
+        return tccv
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -42,13 +54,38 @@ class RelatedMoviesCollectionViewCell: UICollectionViewCell {
     func setupView() {
         addSubview(relatedMoviesLabel)
         addSubview(viewAllBtn)
+        addSubview(tvSerieCollectionView)
+        tvSerieCollectionView.register(RelatedMovieCell.self, forCellWithReuseIdentifier: relatedMoviesCellId)
     }
     
     func setupConstraints() {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":relatedMoviesLabel]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-10-[v0(20)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":relatedMoviesLabel]))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-10-[v0(20)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":viewAllBtn]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-10-[v0(20)]-20-[v1]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":viewAllBtn,"v1":tvSerieCollectionView]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":viewAllBtn]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvSerieCollectionView]))
     }
+    
+}
+
+extension RelatedMoviesCollectionViewCell: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return tvSeries.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: relatedMoviesCellId, for: indexPath) as! RelatedMovieCell
+        cell.tvSerie = tvSeries[indexPath.item]
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width / 3, height: collectionView.frame.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
     
 }
