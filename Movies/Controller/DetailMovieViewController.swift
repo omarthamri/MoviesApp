@@ -39,8 +39,6 @@ class DetailMovieViewController: UIViewController {
         detailMovieCV.register(InfoMovieCollectionViewCell.self, forCellWithReuseIdentifier: infoMovieCellId)
         detailMovieCV.register(OverviewCollectionViewCell.self, forCellWithReuseIdentifier: overviewCellId)
         detailMovieCV.register(RelatedMoviesCollectionViewCell.self, forCellWithReuseIdentifier: relatedMoviesCellId)
-        
-        
     }
     
     func setupConstraints() {
@@ -61,6 +59,10 @@ class DetailMovieViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    func diplayRelatedMovies() {
+        let relatedMovieViewController = RelatedMovieViewController()
+        navigationController?.pushViewController(relatedMovieViewController, animated: true)
+    }
     
 }
 
@@ -79,6 +81,7 @@ extension DetailMovieViewController: UICollectionViewDelegate,UICollectionViewDa
             return cell
         } else if indexPath.item == 3 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: relatedMoviesCellId, for: indexPath) as! RelatedMoviesCollectionViewCell
+            cell.detailMovieViewController = self
             return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: detailMovieCellId, for: indexPath) as! VideoPlayerCollectionViewCell

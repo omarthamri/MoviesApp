@@ -11,6 +11,7 @@ import UIKit
 class RelatedMoviesCollectionViewCell: UICollectionViewCell {
     
     let relatedMoviesCellId = "relatedMoviesCellId"
+    var detailMovieViewController: DetailMovieViewController?
     var tvSeries = [TvSerie(name: "Mad Men",imageName: "mad_men"),TvSerie(name: "Silicon Valley",imageName: "silicon_valley"),TvSerie(name: "Community",imageName: "community")]
     let relatedMoviesLabel: UILabel = {
         let label = UILabel()
@@ -28,6 +29,7 @@ class RelatedMoviesCollectionViewCell: UICollectionViewCell {
         tcl.contentHorizontalAlignment = .right
         tcl.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         tcl.translatesAutoresizingMaskIntoConstraints = false
+        tcl.addTarget(self, action: #selector(viewAllTapped), for: .touchUpInside)
         return tcl
     }()
     
@@ -56,6 +58,10 @@ class RelatedMoviesCollectionViewCell: UICollectionViewCell {
         addSubview(viewAllBtn)
         addSubview(tvSerieCollectionView)
         tvSerieCollectionView.register(RelatedMovieCell.self, forCellWithReuseIdentifier: relatedMoviesCellId)
+    }
+    
+    @objc func viewAllTapped() {
+        detailMovieViewController?.diplayRelatedMovies()
     }
     
     func setupConstraints() {
