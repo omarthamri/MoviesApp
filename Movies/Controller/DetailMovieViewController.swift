@@ -11,6 +11,7 @@ import UIKit
 class DetailMovieViewController: UIViewController {
     
     let detailMovieCellId = "detailMovieCellId"
+    let InfoMovieCellId = "InfoMovieCellId"
     var movieTitle : String?
     lazy var detailMovieCV : UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -33,6 +34,7 @@ class DetailMovieViewController: UIViewController {
         view.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
         view.addSubview(detailMovieCV)
         detailMovieCV.register(VideoPlayerCollectionViewCell.self, forCellWithReuseIdentifier: detailMovieCellId)
+        detailMovieCV.register(InfoMovieCollectionViewCell.self, forCellWithReuseIdentifier: InfoMovieCellId)
     }
     
     func setupConstraints() {
@@ -59,16 +61,27 @@ class DetailMovieViewController: UIViewController {
 extension DetailMovieViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.item == 1 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InfoMovieCellId, for: indexPath) as! InfoMovieCollectionViewCell
+            return cell
+        }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: detailMovieCellId, for: indexPath) as! VideoPlayerCollectionViewCell
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.item == 1 {
+            return CGSize(width: collectionView.frame.width, height: 300)
+        }
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.width * 9 / 16)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
     
     
