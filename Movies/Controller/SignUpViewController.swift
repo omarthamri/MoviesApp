@@ -126,7 +126,7 @@ class SignUpViewController: UIViewController {
     }
     
     func setupView() {
-        view.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
+        view.backgroundColor = UIColor.init(white: 0.2 , alpha: 1)
         view.addSubview(titleLabel)
         view.addSubview(mailTf)
         view.addSubview(mailTfLine)
