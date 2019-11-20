@@ -10,16 +10,10 @@ import UIKit
 
 class SignInViewController: UIViewController {
     
-    var backgroundImage: UIImageView = {
-        let image = UIImageView(image: UIImage(named: "Hotel"))
-        image.contentMode = .scaleAspectFill
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
-    }()
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "HotelApp"
+        label.text = "Movies"
         label.textColor = UIColor.white
         label.font = UIFont.boldSystemFont(ofSize: 36)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -112,8 +106,7 @@ class SignInViewController: UIViewController {
     
     func setupView() {
         view.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
-        navigationController?.navigationBar.isHidden = true 
-        view.addSubview(backgroundImage)
+        navigationController?.navigationBar.isHidden = true
         view.addSubview(titleLabel)
         view.addSubview(mailTf)
         view.addSubview(mailTfLine)
@@ -125,8 +118,6 @@ class SignInViewController: UIViewController {
     }
     
     func setupConstraints() {
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":backgroundImage]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0" : backgroundImage]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":titleLabel]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(view.frame.height / 5.5)-[v0(36)]-90-[v1(44)]-0.1-[v2(1)]-30-[v3(44)]-0.1-[v4(1)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":titleLabel,"v1" : mailTf,"v2" : mailTfLine,"v3":passwordTf,"v4":passwordTfLine]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":mailTf]))
