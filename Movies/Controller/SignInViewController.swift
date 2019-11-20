@@ -100,8 +100,8 @@ class SignInViewController: UIViewController {
     }
     
     @objc func signUpAction() {
-        //let signUpViewController = SignUpViewController()
-        //navigationController?.pushViewController(signUpViewController, animated: true)
+        let signUpViewController = SignUpViewController()
+        navigationController?.pushViewController(signUpViewController, animated: true)
     }
     
     func setupView() {

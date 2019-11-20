@@ -20,6 +20,7 @@
 		48494E6C23809602002C4ED6 /* FavouriteMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48494E6B23809602002C4ED6 /* FavouriteMovieCell.swift */; };
 		485FFA71238543DD0052630A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485FFA70238543DD0052630A /* SignInViewController.swift */; };
 		485FFA73238544CC0052630A /* TextFieldLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485FFA72238544CC0052630A /* TextFieldLineView.swift */; };
+		485FFA7523854B470052630A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485FFA7423854B470052630A /* SignUpViewController.swift */; };
 		4870EFC62383068B003D5381 /* InfoMovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4870EFC52383068B003D5381 /* InfoMovieCollectionViewCell.swift */; };
 		48A670BD23732BAF00B58991 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A670BC23732BAF00B58991 /* AppDelegate.swift */; };
 		48A670BF23732BAF00B58991 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A670BE23732BAF00B58991 /* HomeViewController.swift */; };
@@ -81,6 +82,7 @@
 		48494E6B23809602002C4ED6 /* FavouriteMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteMovieCell.swift; sourceTree = "<group>"; };
 		485FFA70238543DD0052630A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		485FFA72238544CC0052630A /* TextFieldLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldLineView.swift; sourceTree = "<group>"; };
+		485FFA7423854B470052630A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4870EFC52383068B003D5381 /* InfoMovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoMovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		48A670B923732BAF00B58991 /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A670BC23732BAF00B58991 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				48D1EFBB2381CA89003A3166 /* DetailMovieViewController.swift */,
 				48B0B03F2384559500B7624C /* RelatedMovieViewController.swift */,
 				485FFA70238543DD0052630A /* SignInViewController.swift */,
+				485FFA7423854B470052630A /* SignUpViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				48B0B03823842E4300B7624C /* StarView.swift in Sources */,
 				48BC4D20237DCAE60049A7EC /* ProfileViewController.swift in Sources */,
 				48BC4D22237DEDB10049A7EC /* ProfileView.swift in Sources */,
+				485FFA7523854B470052630A /* SignUpViewController.swift in Sources */,
 				48D1EFBC2381CA89003A3166 /* DetailMovieViewController.swift in Sources */,
 				48385C502375EF19001B8909 /* TvSerieViewCell.swift in Sources */,
 				48C8F3E22378890C001A2F5A /* Movie.swift in Sources */,
