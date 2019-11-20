@@ -91,6 +91,7 @@ class HomeViewController: UIViewController {
     
     func setupNavigationBar() {
         navigationItem.title = "Home"
+         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.barTintColor = UIColor.init(white:0.2,alpha:1)
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         let leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: self, action: #selector(showNavigationDrawer))
