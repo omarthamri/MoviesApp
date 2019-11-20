@@ -112,7 +112,7 @@ class SignInViewController: UIViewController {
     
     func setupView() {
         view.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isHidden = true 
         view.addSubview(backgroundImage)
         view.addSubview(titleLabel)
         view.addSubview(mailTf)
