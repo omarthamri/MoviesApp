@@ -87,7 +87,11 @@ extension TvCategoryListViewController: UICollectionViewDelegate,UICollectionVie
         return 5
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let moviesVC = MoviesViewController()
+        moviesVC.titleText = tvCategories[indexPath.item].name
+        navigationController?.pushViewController(moviesVC, animated: true)
+    }
     
     
 }

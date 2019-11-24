@@ -11,6 +11,7 @@ import UIKit
 class MoviesViewController: UIViewController {
     
     let MoviesListCellId = "MoviesListCellId"
+    var titleText: String? = "Movies"
     var movies = [Movie(name: "Limitless",imageName: "limiteless"),Movie(name: "Hunger Games",imageName: "hunger_games"),Movie(name: "Avengers",imageName: "avengers"),Movie(name: "X-Men",imageName: "x_men"),Movie(name: "I Am Legend",imageName: "I_Am_Legend"),Movie(name: "Matrix",imageName: "Matrix"),Movie(name: "We're The Millers",imageName: "were_the_millers"),Movie(name: "Hangover",imageName: "Hangover"),Movie(name: "Wolf Of Wall Street",imageName: "wolf_wall_street")]
     
     lazy var movieListCV: UICollectionView = {
@@ -59,7 +60,7 @@ class MoviesViewController: UIViewController {
         view.addSubview(movieListCV)
         movieListCV.register(MoviesListViewCell.self, forCellWithReuseIdentifier: MoviesListCellId)
         navigationController?.navigationBar.tintColor = .white
-        navigationItem.title = "Movies"
+        navigationItem.title = titleText
         view.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
         currentWindow?.addSubview(navDrawerView)
         currentWindow?.addSubview(closeDrawerView)
@@ -90,7 +91,7 @@ class MoviesViewController: UIViewController {
     }
     
     func setupNavigationBar() {
-        navigationItem.title = "Movies"
+        navigationItem.title = titleText
         navigationController?.navigationBar.barTintColor = UIColor.init(white:0.2,alpha:1)
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         let leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: self, action: #selector(showNavigationDrawer))
