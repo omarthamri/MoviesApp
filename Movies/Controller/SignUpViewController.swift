@@ -142,7 +142,7 @@ class SignUpViewController: UIViewController {
     
     func setupConstraints() {
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":titleLabel]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(view.frame.height / 5.5)-[v0(36)]-90-[v1(44)]-0.1-[v2(1)]-30-[v3(44)]-0.1-[v4(1)]-30-[v5(44)]-0.1-[v6(1)]-30-[v7(44)]-0.1-[v8(1)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":titleLabel,"v1" : fullNameTf,"v2" : fullNameTfLine,"v3":mailTf,"v4":mailTfLine,"v5":phoneTf,"v6":phoneTfLine,"v7":passwordTf,"v8":passwordTfLine]))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(view.frame.height / 6.5)-[v0(36)]-\(view.frame.height * 0.09)-[v1(44)]-0.1-[v2(1)]-\(view.frame.height * 0.04076)-[v3(44)]-0.1-[v4(1)]-\(view.frame.height * 0.04076)-[v5(44)]-0.1-[v6(1)]-\(view.frame.height * 0.04076)-[v7(44)]-0.1-[v8(1)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":titleLabel,"v1" : fullNameTf,"v2" : fullNameTfLine,"v3":mailTf,"v4":mailTfLine,"v5":phoneTf,"v6":phoneTfLine,"v7":passwordTf,"v8":passwordTfLine]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":mailTf]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":mailTfLine]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":passwordTf]))
@@ -152,7 +152,8 @@ class SignUpViewController: UIViewController {
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":phoneTf]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":phoneTfLine]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":signUpButton]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v0(60)]-25-[v1(30)]-60-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": signUpButton,"v1":SignInLabel]))
+        
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v0(\(view.frame.height * 0.08152))]-\(view.frame.height * 0.03396)-[v1(\(view.frame.height * 0.04076))]-\(view.frame.height * 0.08152)-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": signUpButton,"v1":SignInLabel]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":SignInLabel]))
     }
     
