@@ -115,6 +115,7 @@ class SignInViewController: UIViewController {
         view.addSubview(signInButton)
         view.addSubview(ForgotPasswordLabel)
         view.addSubview(SignUpLabel)
+        print("height:\(view.frame.height)")
     }
     
     func setupConstraints() {
@@ -125,7 +126,8 @@ class SignInViewController: UIViewController {
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":passwordTf]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":passwordTfLine]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":signInButton]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v0(60)]-25-[v1(30)]-25-[v2(30)]-60-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0" : signInButton,"v1":ForgotPasswordLabel,"v2":SignUpLabel]))
+        
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v0(\(view.frame.height * 0.0815))]-\(view.frame.height * 0.03396)-[v1(30)]-\(view.frame.height * 0.03396)-[v2(30)]-\(view.frame.height * 0.0815)-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0" : signInButton,"v1":ForgotPasswordLabel,"v2":SignUpLabel]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":ForgotPasswordLabel]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":SignUpLabel]))
     }

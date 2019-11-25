@@ -11,7 +11,7 @@ import UIKit
 class MoviesViewController: UIViewController {
     
     let MoviesListCellId = "MoviesListCellId"
-    var titleText: String? = "Movies"
+    var titleText: String? = "Movies "
     var movies = [Movie(name: "Limitless",imageName: "limiteless"),Movie(name: "Hunger Games",imageName: "hunger_games"),Movie(name: "Avengers",imageName: "avengers"),Movie(name: "X-Men",imageName: "x_men"),Movie(name: "I Am Legend",imageName: "I_Am_Legend"),Movie(name: "Matrix",imageName: "Matrix"),Movie(name: "We're The Millers",imageName: "were_the_millers"),Movie(name: "Hangover",imageName: "Hangover"),Movie(name: "Wolf Of Wall Street",imageName: "wolf_wall_street")]
     
     lazy var movieListCV: UICollectionView = {
