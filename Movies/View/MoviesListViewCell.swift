@@ -57,7 +57,7 @@ class MoviesListViewCell: UICollectionViewCell {
     
     func setupConstraints() {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]-9-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":movieImg]))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0(220)]-3-[v1]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":movieImg,"v1":movieTitle]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0(\(frame.height * 0.88))]-3-[v1]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":movieImg,"v1":movieTitle]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]-9-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":movieTitle]))
     }
     
