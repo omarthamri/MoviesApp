@@ -74,9 +74,10 @@ class HomeViewController: UIViewController {
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-10-[v0]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":newMoviesView]))
         if UIDevice().userInterfaceIdiom == .phone {
             if UIScreen.main.nativeBounds.height == 2436 || UIScreen.main.nativeBounds.height == 2688 || UIScreen.main.nativeBounds.height == 1792 {
-                view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-94-[v0(250)]-15-[v1(170)]-15-[v2(170)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":newMoviesView,"v1":tvCategoryView,"v2":tvSerieView]))
+                
+                view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(view.frame.height * 0.12771)-[v0(\(view.frame.height * 0.33967))]-\(view.frame.height * 0.02038)-[v1(\(view.frame.height * 0.23097))]-\(view.frame.height * 0.02038)-[v2(\(view.frame.height * 0.23097))]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":newMoviesView,"v1":tvCategoryView,"v2":tvSerieView]))
             } else {
-                view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-74-[v0(250)]-15-[v1(170)]-15-[v2(170)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":newMoviesView,"v1":tvCategoryView,"v2":tvSerieView]))
+                view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(view.frame.height * 0.10054)-[v0(\(view.frame.height * 0.33967))]-\(view.frame.height * 0.02038)-[v1(\(view.frame.height * 0.23097))]-\(view.frame.height * 0.02038)-[v2(\(view.frame.height * 0.23097))]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":newMoviesView,"v1":tvCategoryView,"v2":tvSerieView]))
             }
         }
         
