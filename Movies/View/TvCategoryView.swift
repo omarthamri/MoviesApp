@@ -96,5 +96,10 @@ extension TvCategoryView: UICollectionViewDelegate,UICollectionViewDataSource,UI
         return 0
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        homeViewController?.selectedCategoryName = tvCategories[indexPath.item].name
+        homeViewController?.displayTvCategory()
+    }
+    
     
 }

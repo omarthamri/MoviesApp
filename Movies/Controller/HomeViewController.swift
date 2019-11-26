@@ -34,6 +34,8 @@ class HomeViewController: UIViewController {
     var rightAnchor: NSLayoutConstraint?
     var logoutTopAnchor: NSLayoutConstraint?
     var alphaViewTopAnchor: NSLayoutConstraint?
+    var selectedCategoryName: String?
+    var selectedTVSerie: TvSerie?
     lazy var navDrawerView : NavDrawerView = {
         let ndv = NavDrawerView()
         ndv.translatesAutoresizingMaskIntoConstraints = false
@@ -155,6 +157,18 @@ class HomeViewController: UIViewController {
     func displayListTvSerie() {
         let tvSerieListViewController = TvSerieListViewController()
         navigationController?.pushViewController(tvSerieListViewController, animated: true)
+    }
+    
+    func displayTvCategory() {
+        let moviesVC = MoviesViewController()
+        moviesVC.titleText = selectedCategoryName
+        navigationController?.pushViewController(moviesVC, animated: true)
+    }
+    
+    func displayTVSerie() {
+        let detailMovieViewController = DetailMovieViewController()
+        detailMovieViewController.movieTitle = selectedTVSerie?.name
+        navigationController?.pushViewController(detailMovieViewController, animated: true)
     }
 
 }

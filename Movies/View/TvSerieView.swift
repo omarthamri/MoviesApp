@@ -93,5 +93,10 @@ extension TvSerieView: UICollectionViewDelegate,UICollectionViewDataSource,UICol
         return 0
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        homeViewController?.selectedTVSerie = tvSeries[indexPath.item]
+        homeViewController?.displayTVSerie()
+    }
+    
     
 }
