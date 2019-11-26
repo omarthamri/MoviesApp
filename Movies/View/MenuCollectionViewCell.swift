@@ -52,7 +52,6 @@ class MenuCollectionViewCell: UICollectionViewCell {
     func setupView() {
         addSubview(imageView)
         addSubview(nameLabel)
-        print(frame.height)
     }
     
     func setupConstraints() {
