@@ -22,6 +22,7 @@
 		485FFA73238544CC0052630A /* TextFieldLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485FFA72238544CC0052630A /* TextFieldLineView.swift */; };
 		485FFA7523854B470052630A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485FFA7423854B470052630A /* SignUpViewController.swift */; };
 		4870EFC62383068B003D5381 /* InfoMovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4870EFC52383068B003D5381 /* InfoMovieCollectionViewCell.swift */; };
+		48944E83238D86930074EEF1 /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48944E82238D86930074EEF1 /* LogoutView.swift */; };
 		48A670BD23732BAF00B58991 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A670BC23732BAF00B58991 /* AppDelegate.swift */; };
 		48A670BF23732BAF00B58991 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A670BE23732BAF00B58991 /* HomeViewController.swift */; };
 		48A670C523732BAF00B58991 /* Movies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 48A670C323732BAF00B58991 /* Movies.xcdatamodeld */; };
@@ -84,6 +85,7 @@
 		485FFA72238544CC0052630A /* TextFieldLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldLineView.swift; sourceTree = "<group>"; };
 		485FFA7423854B470052630A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4870EFC52383068B003D5381 /* InfoMovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoMovieCollectionViewCell.swift; sourceTree = "<group>"; };
+		48944E82238D86930074EEF1 /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
 		48A670B923732BAF00B58991 /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A670BC23732BAF00B58991 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48A670BE23732BAF00B58991 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				48B0B03D2384440600B7624C /* RelatedMovieCell.swift */,
 				48B0B04123845A9E00B7624C /* RelatedMovieListCell.swift */,
 				485FFA72238544CC0052630A /* TextFieldLineView.swift */,
+				48944E82238D86930074EEF1 /* LogoutView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				48BC4D22237DEDB10049A7EC /* ProfileView.swift in Sources */,
 				485FFA7523854B470052630A /* SignUpViewController.swift in Sources */,
 				48D1EFBC2381CA89003A3166 /* DetailMovieViewController.swift in Sources */,
+				48944E83238D86930074EEF1 /* LogoutView.swift in Sources */,
 				48385C502375EF19001B8909 /* TvSerieViewCell.swift in Sources */,
 				48C8F3E22378890C001A2F5A /* Movie.swift in Sources */,
 				48385C4C2375EC3E001B8909 /* TvSerieView.swift in Sources */,
