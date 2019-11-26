@@ -141,7 +141,6 @@ class ProfileView : UIView, UIImagePickerControllerDelegate, UINavigationControl
         button.setTitle("Save Changes", for: .normal)
         button.backgroundColor = UIColor.orange
         button.setTitleColor(UIColor.white, for: .normal)
-        button.layer.cornerRadius = 30
         button.clipsToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(saveChangeAction), for: .touchUpInside)
@@ -156,9 +155,10 @@ class ProfileView : UIView, UIImagePickerControllerDelegate, UINavigationControl
         return imagePicker
     }()
     var profileViewController: ProfileViewController?
-    
+    var heightValue = 0
     override init(frame: CGRect) {
         super.init(frame: frame)
+        heightValue = Int(UIScreen.main.bounds.height - 64)
         setupView()
         setupConstraints()
     }
@@ -183,12 +183,14 @@ class ProfileView : UIView, UIImagePickerControllerDelegate, UINavigationControl
         addSubview(cityTf)
         addSubview(cityView)
         addSubview(saveChangesButton)
+        saveChangesButton.layer.cornerRadius = CGFloat(Double(heightValue) * 0.04464)
     }
     
     func setupConstraints() {
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":profileImgView]))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0(\((UIScreen.main.bounds.height - 64) / 3))]-30-[v1(20)]-10-[v2(20)]-5-[v3(2)]-20-[v4(20)]-10-[v5(20)]-5-[v6(2)]-20-[v7(20)]-10-[v8(20)]-5-[v9(2)]-20-[v10(20)]-10-[v11(20)]-5-[v12(2)]-30-[v13(60)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":profileImgView,"v1":fullNameLabel,"v2":fullNameTf,"v3":fullNameView,"v4":mailLabel,"v5":mailTf,"v6":mailView,"v7":phoneLabel,"v8":phoneTf,"v9":phoneView,"v10":cityLabel,"v11":cityTf,"v12":cityView,"v13":saveChangesButton]))
+        
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0(\(heightValue / 3))]-\(Double(heightValue) * 0.04464)-[v1(\(Double(heightValue) * 0.02976))]-\(Double(heightValue) * 0.01488)-[v2(\(Double(heightValue) * 0.02976))]-\(Double(heightValue) * 0.00744)-[v3(2)]-\(Double(heightValue) * 0.02976)-[v4(\(Double(heightValue) * 0.02976))]-\(Double(heightValue) * 0.01488)-[v5(\(Double(heightValue) * 0.02976))]-\(Double(heightValue) * 0.00744)-[v6(2)]-\(Double(heightValue) * 0.02976)-[v7(\(Double(heightValue) * 0.02976))]-\(Double(heightValue) * 0.01488)-[v8(\(Double(heightValue) * 0.02976))]-\(Double(heightValue) * 0.00744)-[v9(2)]-\(Double(heightValue) * 0.02976)-[v10(\(Double(heightValue) * 0.02976))]-\(Double(heightValue) * 0.01488)-[v11(\(Double(heightValue) * 0.02976))]-\(Double(heightValue) * 0.00744)-[v12(2)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":profileImgView,"v1":fullNameLabel,"v2":fullNameTf,"v3":fullNameView,"v4":mailLabel,"v5":mailTf,"v6":mailView,"v7":phoneLabel,"v8":phoneTf,"v9":phoneView,"v10":cityLabel,"v11":cityTf,"v12":cityView]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0(30)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":cameraImgView]))
         let distance = ((UIScreen.main.bounds.height - 64) / 3 ) - 55
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(distance)-[v0(30)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":cameraImgView]))
@@ -205,6 +207,7 @@ class ProfileView : UIView, UIImagePickerControllerDelegate, UINavigationControl
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0(250)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":cityTf]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":cityView]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":saveChangesButton]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[v0(\(Double(heightValue) * 0.08928))]-25-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":saveChangesButton]))
         
     }
     
