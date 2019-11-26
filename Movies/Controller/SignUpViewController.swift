@@ -86,7 +86,6 @@ class SignUpViewController: UIViewController {
         button.setTitle("Sign Up", for: .normal)
         button.backgroundColor = UIColor.orange
         button.setTitleColor(UIColor.white, for: .normal)
-        button.layer.cornerRadius = 30
         button.clipsToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(signUpAction), for: .touchUpInside)
@@ -138,6 +137,7 @@ class SignUpViewController: UIViewController {
         view.addSubview(phoneTfLine)
         view.addSubview(signUpButton)
         view.addSubview(SignInLabel)
+        signUpButton.layer.cornerRadius = view.frame.height * 0.04076
     }
     
     func setupConstraints() {

@@ -58,7 +58,6 @@ class SignInViewController: UIViewController {
         button.setTitle("Sign In", for: .normal)
         button.backgroundColor = UIColor.orange
         button.setTitleColor(UIColor.white, for: .normal)
-        button.layer.cornerRadius = 30
         button.clipsToBounds = true
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(signInAction), for: .touchUpInside)
@@ -115,7 +114,7 @@ class SignInViewController: UIViewController {
         view.addSubview(signInButton)
         view.addSubview(ForgotPasswordLabel)
         view.addSubview(SignUpLabel)
-        print("height:\(view.frame.height)")
+        signInButton.layer.cornerRadius = view.frame.height * 0.04076
     }
     
     func setupConstraints() {
