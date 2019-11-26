@@ -58,7 +58,8 @@ class TvCategoryViewCell: UICollectionViewCell {
     
     func setupConstraints() {
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]-9-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvCategoryImg]))
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0(120)]-3-[v1]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvCategoryImg,"v1":tvCategoryTitle]))
+        
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0(\(frame.height * 0.85714))]-3-[v1]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvCategoryImg,"v1":tvCategoryTitle]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]-9-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":tvCategoryTitle]))
     }
     

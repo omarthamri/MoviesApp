@@ -108,7 +108,7 @@ extension NavDrawerView: UICollectionViewDelegate,UICollectionViewDataSource,UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 50)
+        return CGSize(width: collectionView.frame.width, height: frame.height * 0.06793)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
