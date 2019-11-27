@@ -154,6 +154,9 @@ class MoviesViewController: UIViewController {
         } else if selectedItem == 4 {
             let profileViewController = ProfileViewController()
             navigationController?.pushViewController(profileViewController, animated: false)
+        } else if selectedItem == 5 {
+            let settingsViewController = SettingsViewController()
+            navigationController?.pushViewController(settingsViewController, animated: false)
         } else if selectedItem == 6 {
             alphaViewTopAnchor?.constant = 0
             logoutTopAnchor?.constant = 0

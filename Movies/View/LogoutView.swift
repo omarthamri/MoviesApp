@@ -15,7 +15,7 @@ class LogoutView: UIView {
     var tvSerieListViewController: TvSerieListViewController?
     var favouriteViewController: FavouriteViewController?
     var profileViewController: ProfileViewController?
-    
+    var settingsViewController: SettingsViewController?
     let headerView: UIView = {
         let hv = UIView()
         hv.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
@@ -111,6 +111,8 @@ class LogoutView: UIView {
             favouriteViewController?.Logout()
         } else if profileViewController != nil {
             profileViewController?.Logout()
+        } else if settingsViewController != nil {
+            settingsViewController?.Logout()
         }
     }
     
@@ -125,6 +127,8 @@ class LogoutView: UIView {
             favouriteViewController?.cancelLogout()
         } else if profileViewController != nil {
             profileViewController?.cancelLogout()
+        } else if settingsViewController != nil {
+            settingsViewController?.cancelLogout()
         }
     }
     

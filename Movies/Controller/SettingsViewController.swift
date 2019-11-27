@@ -1,30 +1,35 @@
 //
-//  ProfileViewController.swift
+//  SettingsViewController.swift
 //  Movies
 //
-//  Created by Omar Thamri on 14/11/2019.
+//  Created by Omar Thamri on 26/11/2019.
 //  Copyright © 2019 MACBOOK PRO RETINA. All rights reserved.
 //
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class SettingsViewController: UIViewController {
     
+    let settingsCellId = "settingsCellId"
+    lazy var settingsCV: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let scv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        scv.translatesAutoresizingMaskIntoConstraints = false
+        scv.delegate = self
+        scv.dataSource = self
+        scv.backgroundColor = UIColor.white
+        scv.isScrollEnabled = false
+        return scv
+    }()
     var selectedItem: Int?
     var leftAnchor: NSLayoutConstraint?
     var rightAnchor: NSLayoutConstraint?
     var logoutTopAnchor: NSLayoutConstraint?
     var alphaViewTopAnchor: NSLayoutConstraint?
-    lazy var  profileView: ProfileView = {
-        var av = ProfileView()
-        av.profileViewController = self
-        av.translatesAutoresizingMaskIntoConstraints = false
-        return av
-    }()
     lazy var navDrawerView : NavDrawerView = {
         let ndv = NavDrawerView()
         ndv.translatesAutoresizingMaskIntoConstraints = false
-        ndv.profileViewController = self
+        ndv.settingsViewController = self
         return ndv
     }()
     lazy var closeDrawerView : CloseDrawerView = {
@@ -48,9 +53,18 @@ class ProfileViewController: UIViewController {
     lazy var logoutView: LogoutView = {
         let lv = LogoutView()
         lv.translatesAutoresizingMaskIntoConstraints = false
-        lv.profileViewController = self
+        lv.settingsViewController = self
         return lv
     }()
+    
+    let grayView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let settingItems = ["Push Notification","Contact Us","Privacy Policy","About us","Help"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,16 +75,24 @@ class ProfileViewController: UIViewController {
     
     func setupView() {
         navigationController?.navigationBar.tintColor = .white
-        view.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
+        view.backgroundColor = UIColor.white
+        view.addSubview(settingsCV)
+        settingsCV.register(SettingsCollectionViewCell.self, forCellWithReuseIdentifier: settingsCellId)
+        view.addSubview(grayView)
         currentWindow?.addSubview(navDrawerView)
         currentWindow?.addSubview(closeDrawerView)
-        view.addSubview(profileView)
         setupLogoutView()
     }
     
     func setupConstraints() {
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":profileView]))
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-64-[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":profileView]))
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":settingsCV]))
+            if UIScreen.main.nativeBounds.height == 2436 || UIScreen.main.nativeBounds.height == 2688 || UIScreen.main.nativeBounds.height == 1792 {
+                view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-90-[v0(\(view.frame.height * 0.67935))]-2-[v1]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":settingsCV,"v1":grayView]))
+            } else {
+                view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-66-[v0(\(view.frame.height * 0.67935))]-2-[v1]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":settingsCV,"v1":grayView]))
+            }
+        
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":grayView]))
         widthNavDrawer = (currentWindow?.frame.width)! * 2 / 3
         widthCloseNavDrawer = (currentWindow?.frame.width)! / 3
         navDrawerView.widthAnchor.constraint(equalToConstant: widthNavDrawer!).isActive = true
@@ -87,14 +109,13 @@ class ProfileViewController: UIViewController {
     }
     
     func setupNavigationBar() {
-        navigationItem.title = "Profile"
+        navigationItem.title = "Settings"
         navigationController?.navigationBar.barTintColor = UIColor.init(white:0.2,alpha:1)
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         let leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: self, action: #selector(showNavigationDrawer))
         leftBarButtonItem.tintColor = UIColor.white
         navigationItem.leftBarButtonItem = leftBarButtonItem
     }
-    
     
     @objc func showNavigationDrawer() {
         UIApplication.shared.keyWindow?.windowLevel = UIWindowLevelStatusBar
@@ -172,5 +193,30 @@ class ProfileViewController: UIViewController {
         logoutTopAnchor?.constant = (currentWindow?.frame.height)!
         self.currentWindow?.layoutIfNeeded()
     }
+    
+}
+
+extension SettingsViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return settingItems.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: settingsCellId, for: indexPath) as! SettingsCollectionViewCell
+        cell.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
+        cell.settingNameLbl.text = settingItems[indexPath.item]
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height / 5)
+    }
+    
+    
+    
     
 }

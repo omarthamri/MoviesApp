@@ -23,6 +23,7 @@
 		485FFA7523854B470052630A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485FFA7423854B470052630A /* SignUpViewController.swift */; };
 		4870EFC62383068B003D5381 /* InfoMovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4870EFC52383068B003D5381 /* InfoMovieCollectionViewCell.swift */; };
 		48944E83238D86930074EEF1 /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48944E82238D86930074EEF1 /* LogoutView.swift */; };
+		48944E85238DAD7E0074EEF1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48944E84238DAD7E0074EEF1 /* SettingsViewController.swift */; };
 		48A670BD23732BAF00B58991 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A670BC23732BAF00B58991 /* AppDelegate.swift */; };
 		48A670BF23732BAF00B58991 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A670BE23732BAF00B58991 /* HomeViewController.swift */; };
 		48A670C523732BAF00B58991 /* Movies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 48A670C323732BAF00B58991 /* Movies.xcdatamodeld */; };
@@ -50,6 +51,7 @@
 		48E62C722376BD80004559D2 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E62C712376BD80004559D2 /* Menu.swift */; };
 		48E62C742376BEF1004559D2 /* CloseDrawerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E62C732376BEF1004559D2 /* CloseDrawerView.swift */; };
 		48E62C762376F447004559D2 /* TvCategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E62C752376F447004559D2 /* TvCategoryListViewController.swift */; };
+		48ECBEBE238EB3C4001474C5 /* SettingsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ECBEBD238EB3C4001474C5 /* SettingsCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +88,7 @@
 		485FFA7423854B470052630A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4870EFC52383068B003D5381 /* InfoMovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoMovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		48944E82238D86930074EEF1 /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
+		48944E84238DAD7E0074EEF1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		48A670B923732BAF00B58991 /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A670BC23732BAF00B58991 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48A670BE23732BAF00B58991 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +122,7 @@
 		48E62C712376BD80004559D2 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		48E62C732376BEF1004559D2 /* CloseDrawerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseDrawerView.swift; sourceTree = "<group>"; };
 		48E62C752376F447004559D2 /* TvCategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvCategoryListViewController.swift; sourceTree = "<group>"; };
+		48ECBEBD238EB3C4001474C5 /* SettingsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +216,7 @@
 				48B0B03F2384559500B7624C /* RelatedMovieViewController.swift */,
 				485FFA70238543DD0052630A /* SignInViewController.swift */,
 				485FFA7423854B470052630A /* SignUpViewController.swift */,
+				48944E84238DAD7E0074EEF1 /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 				48B0B04123845A9E00B7624C /* RelatedMovieListCell.swift */,
 				485FFA72238544CC0052630A /* TextFieldLineView.swift */,
 				48944E82238D86930074EEF1 /* LogoutView.swift */,
+				48ECBEBD238EB3C4001474C5 /* SettingsCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -413,6 +419,8 @@
 				48385C422375C024001B8909 /* NewMoviesView.swift in Sources */,
 				482EB1EE237C5ECC00B21F7B /* MoviesListViewCell.swift in Sources */,
 				48A670BD23732BAF00B58991 /* AppDelegate.swift in Sources */,
+				48944E85238DAD7E0074EEF1 /* SettingsViewController.swift in Sources */,
+				48ECBEBE238EB3C4001474C5 /* SettingsCollectionViewCell.swift in Sources */,
 				48B0B03823842E4300B7624C /* StarView.swift in Sources */,
 				48BC4D20237DCAE60049A7EC /* ProfileViewController.swift in Sources */,
 				48BC4D22237DEDB10049A7EC /* ProfileView.swift in Sources */,
