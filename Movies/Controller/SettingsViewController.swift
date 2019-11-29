@@ -217,7 +217,10 @@ extension SettingsViewController: UICollectionViewDelegate,UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.item == 3 {
+        if indexPath.item == 2 {
+            let privacyPolicyViewController = PrivacyPolicyViewController()
+            navigationController?.pushViewController(privacyPolicyViewController, animated: true)
+        }else if indexPath.item == 3 {
            let aboutUsViewController = AboutUsViewController()
             navigationController?.pushViewController(aboutUsViewController, animated: true)
         }
