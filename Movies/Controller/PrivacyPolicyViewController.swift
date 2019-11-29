@@ -55,7 +55,11 @@ class PrivacyPolicyViewController: UIViewController {
     
     func setupConstraints() {
         view.addConstraintsWithFormat(format: "H:|-20-[v0]-20-|", views: whiteView)
-        view.addConstraintsWithFormat(format: "V:|-84-[v0]-20-|", views: whiteView)
+        if UIScreen.main.nativeBounds.height == 2436 || UIScreen.main.nativeBounds.height == 2688 || UIScreen.main.nativeBounds.height == 1792 {
+        view.addConstraintsWithFormat(format: "V:|-106-[v0]-20-|", views: whiteView)
+        } else {
+            view.addConstraintsWithFormat(format: "V:|-84-[v0]-20-|", views: whiteView)
+        }
         whiteView.addConstraintsWithFormat(format: "H:|[v0]|", views: privacyPolicyTV)
         whiteView.addConstraintsWithFormat(format: "V:|[v0]|", views: privacyPolicyTV)
     }
