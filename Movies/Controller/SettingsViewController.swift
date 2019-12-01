@@ -25,6 +25,7 @@ class SettingsViewController: UIViewController {
     var leftAnchor: NSLayoutConstraint?
     var rightAnchor: NSLayoutConstraint?
     var logoutTopAnchor: NSLayoutConstraint?
+    var contactUsTopAnchor: NSLayoutConstraint?
     var alphaViewTopAnchor: NSLayoutConstraint?
     lazy var navDrawerView : NavDrawerView = {
         let ndv = NavDrawerView()
@@ -64,6 +65,16 @@ class SettingsViewController: UIViewController {
         return view
     }()
     
+    lazy var contactUsView: ContactUsView = {
+       let view = ContactUsView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor.white
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 5
+        view.settingsViewController = self
+        return view
+    }()
+    
     let settingItems = ["Push Notification","Contact Us","Privacy Policy","About us","Help"]
     
     override func viewDidLoad() {
@@ -82,6 +93,7 @@ class SettingsViewController: UIViewController {
         currentWindow?.addSubview(navDrawerView)
         currentWindow?.addSubview(closeDrawerView)
         setupLogoutView()
+        setupContactUsView()
     }
     
     func setupConstraints() {
@@ -168,6 +180,31 @@ class SettingsViewController: UIViewController {
         currentWindow?.addSubview(logoutView)
     }
     
+    func setupContactUsView() {
+    currentWindow?.addSubview(contactUsView)
+    currentWindow?.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-30-[v0]-30-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":contactUsView]))
+    contactUsView.heightAnchor.constraint(equalToConstant: 350).isActive = true
+    contactUsTopAnchor = contactUsView.centerYAnchor.constraint(equalTo: (currentWindow?.centerYAnchor)!, constant: (currentWindow?.frame.height)! )
+    contactUsTopAnchor?.isActive = true
+    }
+    
+    func displayContactUs() {
+        alphaViewTopAnchor?.constant = 0
+        contactUsTopAnchor?.constant = 0
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: {
+            self.currentWindow?.layoutIfNeeded()
+        })
+        
+    }
+    
+    func closeContactUs() {
+        alphaViewTopAnchor?.constant = (currentWindow?.frame.height)!
+        contactUsTopAnchor?.constant = (currentWindow?.frame.height)!
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: {
+            self.currentWindow?.layoutIfNeeded()
+        })
+    }
+    
     func setupLogoutViewConstraints() {
         currentWindow?.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":alphaView]))
         alphaViewTopAnchor = alphaView.topAnchor.constraint(equalTo: (currentWindow?.topAnchor)!, constant: (currentWindow?.frame.height)!)
@@ -217,7 +254,9 @@ extension SettingsViewController: UICollectionViewDelegate,UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.item == 2 {
+        if indexPath.item == 1 {
+            displayContactUs()
+        } else if indexPath.item == 2 {
             let privacyPolicyViewController = PrivacyPolicyViewController()
             navigationController?.pushViewController(privacyPolicyViewController, animated: true)
         }else if indexPath.item == 3 {
