@@ -54,7 +54,7 @@ class ContactUsView: UIView {
         let button = UIButton()
         button.setTitle("SEND IT", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
-        button.backgroundColor = UIColor.red
+        button.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.clipsToBounds = true
         button.layer.cornerRadius = 7
