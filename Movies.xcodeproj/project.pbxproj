@@ -18,6 +18,7 @@
 		48385C4E2375EE1D001B8909 /* TvSerie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48385C4D2375EE1D001B8909 /* TvSerie.swift */; };
 		48385C502375EF19001B8909 /* TvSerieViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48385C4F2375EF19001B8909 /* TvSerieViewCell.swift */; };
 		48494E6C23809602002C4ED6 /* FavouriteMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48494E6B23809602002C4ED6 /* FavouriteMovieCell.swift */; };
+		485505192397C2C100CB6FFA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4855051B2397C2C100CB6FFA /* Localizable.strings */; };
 		485FFA71238543DD0052630A /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485FFA70238543DD0052630A /* SignInViewController.swift */; };
 		485FFA73238544CC0052630A /* TextFieldLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485FFA72238544CC0052630A /* TextFieldLineView.swift */; };
 		485FFA7523854B470052630A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485FFA7423854B470052630A /* SignUpViewController.swift */; };
@@ -34,7 +35,6 @@
 		48A670BF23732BAF00B58991 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A670BE23732BAF00B58991 /* HomeViewController.swift */; };
 		48A670C523732BAF00B58991 /* Movies.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 48A670C323732BAF00B58991 /* Movies.xcdatamodeld */; };
 		48A670C723732BAF00B58991 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48A670C623732BAF00B58991 /* Assets.xcassets */; };
-		48A670CA23732BAF00B58991 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48A670C823732BAF00B58991 /* LaunchScreen.storyboard */; };
 		48A670D523732BAF00B58991 /* MoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A670D423732BAF00B58991 /* MoviesTests.swift */; };
 		48A670E023732BAF00B58991 /* MoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A670DF23732BAF00B58991 /* MoviesUITests.swift */; };
 		48B0B03823842E4300B7624C /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B0B03723842E4300B7624C /* StarView.swift */; };
@@ -90,6 +90,9 @@
 		48385C4D2375EE1D001B8909 /* TvSerie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvSerie.swift; sourceTree = "<group>"; };
 		48385C4F2375EF19001B8909 /* TvSerieViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvSerieViewCell.swift; sourceTree = "<group>"; };
 		48494E6B23809602002C4ED6 /* FavouriteMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteMovieCell.swift; sourceTree = "<group>"; };
+		4855050F2397BA3A00CB6FFA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		4855051A2397C2C100CB6FFA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4855051C2397C2C400CB6FFA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		485FFA70238543DD0052630A /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		485FFA72238544CC0052630A /* TextFieldLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldLineView.swift; sourceTree = "<group>"; };
 		485FFA7423854B470052630A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +207,7 @@
 				48A670C823732BAF00B58991 /* LaunchScreen.storyboard */,
 				48A670CB23732BAF00B58991 /* Info.plist */,
 				48A670C323732BAF00B58991 /* Movies.xcdatamodeld */,
+				4855051B2397C2C100CB6FFA /* Localizable.strings */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -381,6 +385,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 48A670B023732BAF00B58991;
 			productRefGroup = 48A670BA23732BAF00B58991 /* Products */;
@@ -399,7 +404,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48A670CA23732BAF00B58991 /* LaunchScreen.storyboard in Resources */,
+				485505192397C2C100CB6FFA /* Localizable.strings in Resources */,
 				48A670C723732BAF00B58991 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,10 +513,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4855051B2397C2C100CB6FFA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4855051A2397C2C100CB6FFA /* en */,
+				4855051C2397C2C400CB6FFA /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		48A670C823732BAF00B58991 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				48A670C923732BAF00B58991 /* Base */,
+				4855050F2397BA3A00CB6FFA /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -523,6 +538,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -580,6 +596,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

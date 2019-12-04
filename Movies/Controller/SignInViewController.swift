@@ -55,7 +55,7 @@ class SignInViewController: UIViewController {
     
     let signInButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Sign In", for: .normal)
+        button.setTitle(NSLocalizedString("Sign In", comment: ""), for: .normal)
         button.backgroundColor = UIColor.orange
         button.setTitleColor(UIColor.white, for: .normal)
         button.clipsToBounds = true
@@ -76,7 +76,7 @@ class SignInViewController: UIViewController {
     
     lazy var SignUpLabel: UILabel = {
         let label = UILabel()
-        label.text = "Sign Up"
+        label.text = NSLocalizedString("Sign Up", comment: "")
         label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
