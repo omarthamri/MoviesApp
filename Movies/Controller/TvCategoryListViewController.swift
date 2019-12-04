@@ -11,7 +11,7 @@ import UIKit
 class TvCategoryListViewController: UIViewController {
     
     let TvCategoryListViewCellId = "TvCategoryListViewCellId"
-    var tvCategories = [Category(name: "Horror",imageName: "horror"),Category(name: "Action",imageName: "action"),Category(name: "Comedy",imageName: "comedy"),Category(name: "Science Fiction",imageName: "science_fiction"),Category(name: "Drama",imageName: "drama")]
+    var tvCategories = [Category(name: NSLocalizedString("Horror", comment: ""),imageName: "horror"),Category(name: "Action",imageName: "action"),Category(name: NSLocalizedString("Comedy", comment: ""),imageName: "comedy"),Category(name: "Science Fiction",imageName: "science_fiction"),Category(name: NSLocalizedString("Drama", comment: ""),imageName: NSLocalizedString("drama", comment: ""))]
     
     lazy var tvCategoryListCV: UICollectionView = {
         let layout = UICollectionViewFlowLayout()

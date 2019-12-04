@@ -45,7 +45,7 @@ class SettingsCollectionViewCell: UICollectionViewCell {
     
     func setupConstraints() {
         
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0(\(frame.width / 2))]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":settingNameLbl]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0(\(frame.width / 1.5))]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":settingNameLbl]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-10-[v0]-10-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":settingNameLbl]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[v0(20)]-20-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":nextImg]))
         nextImg.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true

@@ -55,7 +55,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
     }
     
     func setupConstraints() {
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0(20)]-30-[v1(100)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":imageView,"v1":nameLabel]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0(20)]-30-[v1(150)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":imageView,"v1":nameLabel]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-15-[v0(20)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":imageView]))
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-15-[v0(20)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":nameLabel]))
     }

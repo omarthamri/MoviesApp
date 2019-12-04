@@ -17,7 +17,7 @@ class NavDrawerView: UIView {
     var profileViewController: ProfileViewController?
     var favouriteViewController: FavouriteViewController?
     var settingsViewController: SettingsViewController?
-    let menuItems = [Menu(name: "Home",imageName: "home"),Menu(name: "Movies",imageName: "movies"),Menu(name: "TV Series",imageName: "tvseries"),Menu(name: "Favorite",imageName: "favorite"),Menu(name: "Profile",imageName: "account"),Menu(name: "Settings",imageName: "setting"),Menu(name: "Logout",imageName: "logout")]
+    let menuItems = [Menu(name: NSLocalizedString("Home", comment: ""),imageName: "home"),Menu(name: NSLocalizedString("Movies", comment: ""),imageName: "movies"),Menu(name: NSLocalizedString("TV Series", comment: ""),imageName: "tvseries"),Menu(name: NSLocalizedString("Favorite", comment: ""),imageName: "favorite"),Menu(name: NSLocalizedString("Profile", comment: ""),imageName: "account"),Menu(name: NSLocalizedString("Settings", comment: ""),imageName: "setting"),Menu(name: NSLocalizedString("Logout", comment: ""),imageName: "logout")]
     
     var headerView: UIView = {
         var hv = UIView()

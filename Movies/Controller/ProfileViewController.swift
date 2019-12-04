@@ -87,7 +87,7 @@ class ProfileViewController: UIViewController {
     }
     
     func setupNavigationBar() {
-        navigationItem.title = "Profile"
+        navigationItem.title = NSLocalizedString("Profile", comment: "")
         navigationController?.navigationBar.barTintColor = UIColor.init(white:0.2,alpha:1)
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         let leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: self, action: #selector(showNavigationDrawer))

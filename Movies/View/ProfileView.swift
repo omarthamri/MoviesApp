@@ -35,7 +35,7 @@ class ProfileView : UIView, UIImagePickerControllerDelegate, UINavigationControl
     let fullNameLabel: UILabel = {
         let cnl = UILabel()
         cnl.textColor = UIColor.white
-        cnl.text = "Full Name"
+        cnl.text = NSLocalizedString("Full Name", comment: "")
         cnl.font = UIFont.systemFont(ofSize: 13)
         cnl.translatesAutoresizingMaskIntoConstraints = false
         return cnl
@@ -87,7 +87,7 @@ class ProfileView : UIView, UIImagePickerControllerDelegate, UINavigationControl
     let phoneLabel: UILabel = {
         let cnl = UILabel()
         cnl.textColor = UIColor.white
-        cnl.text = "Phone Number"
+        cnl.text = NSLocalizedString("Phone Number", comment: "")
         cnl.font = UIFont.systemFont(ofSize: 13)
         cnl.translatesAutoresizingMaskIntoConstraints = false
         return cnl
@@ -113,7 +113,7 @@ class ProfileView : UIView, UIImagePickerControllerDelegate, UINavigationControl
     let cityLabel: UILabel = {
         let cnl = UILabel()
         cnl.textColor = UIColor.white
-        cnl.text = "City"
+        cnl.text = NSLocalizedString("City", comment: "")
         cnl.font = UIFont.systemFont(ofSize: 13)
         cnl.translatesAutoresizingMaskIntoConstraints = false
         return cnl
@@ -138,7 +138,7 @@ class ProfileView : UIView, UIImagePickerControllerDelegate, UINavigationControl
     
     let saveChangesButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Save Changes", for: .normal)
+        button.setTitle(NSLocalizedString("Save Changes", comment: ""), for: .normal)
         button.backgroundColor = UIColor.orange
         button.setTitleColor(UIColor.white, for: .normal)
         button.clipsToBounds = true

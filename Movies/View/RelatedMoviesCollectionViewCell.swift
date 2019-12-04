@@ -15,7 +15,7 @@ class RelatedMoviesCollectionViewCell: UICollectionViewCell {
     var tvSeries = [TvSerie(name: "Mad Men",imageName: "mad_men"),TvSerie(name: "Silicon Valley",imageName: "silicon_valley"),TvSerie(name: "Community",imageName: "community")]
     let relatedMoviesLabel: UILabel = {
         let label = UILabel()
-        label.text = "Related TV Series"
+        label.text = NSLocalizedString("Related TV Series", comment: "")
         label.textColor = UIColor.white
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -24,7 +24,7 @@ class RelatedMoviesCollectionViewCell: UICollectionViewCell {
     
     lazy var viewAllBtn: UIButton = {
         let tcl = UIButton()
-        tcl.setTitle("View All", for: .normal)
+        tcl.setTitle(NSLocalizedString("View All", comment: ""), for: .normal)
         tcl.setTitleColor(UIColor.orange, for: .normal)
         tcl.contentHorizontalAlignment = .right
         tcl.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)

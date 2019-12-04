@@ -12,7 +12,7 @@ class TvCategoryView: UIView {
     
     var homeViewController: HomeViewController?
     let tvCategoryViewCellId = "tvCategoryViewCellId"
-    var tvCategories = [Category(name: "Horror",imageName: "horror"),Category(name: "Action",imageName: "action"),Category(name: "Comedy",imageName: "comedy")]
+    var tvCategories = [Category(name: NSLocalizedString("Horror", comment: ""),imageName: "horror"),Category(name: "Action",imageName: "action"),Category(name: NSLocalizedString("Comedy", comment: ""),imageName: "comedy")]
     
     let tvCategoryLbl: UILabel = {
        let tcl = UILabel()

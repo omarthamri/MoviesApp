@@ -54,7 +54,7 @@ class FavouriteViewController: UIViewController {
     let moviesBtn: UIButton = {
         let mb = UIButton()
         mb.translatesAutoresizingMaskIntoConstraints = false
-        mb.setTitle("Movies", for: .normal)
+        mb.setTitle(NSLocalizedString("Movies", comment: ""), for: .normal)
         mb.setTitleColor(UIColor.white, for: .normal)
         mb.titleLabel?.textAlignment = .center
         mb.addTarget(self, action: #selector(movieTapped), for: .touchUpInside)
@@ -64,7 +64,7 @@ class FavouriteViewController: UIViewController {
     lazy var tvSeriesBtn: UIButton = {
         let mb = UIButton()
         mb.translatesAutoresizingMaskIntoConstraints = false
-        mb.setTitle("TV Series", for: .normal)
+        mb.setTitle(NSLocalizedString("TV Series", comment: ""), for: .normal)
         mb.setTitleColor(UIColor.white, for: .normal)
         mb.titleLabel?.textAlignment = .center
         mb.addTarget(self, action: #selector(tvSerieTapped), for: .touchUpInside)
@@ -114,7 +114,7 @@ class FavouriteViewController: UIViewController {
         view.addSubview(FavoriteMoviesCV)
         FavoriteMoviesCV.register(FavouriteMovieCell.self, forCellWithReuseIdentifier: FavoriteMoviesCellId)
         navigationController?.navigationBar.tintColor = .white
-        navigationItem.title = "Favorite"
+        navigationItem.title = NSLocalizedString("Favorite", comment: "")
         view.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
         currentWindow?.addSubview(navDrawerView)
         currentWindow?.addSubview(closeDrawerView)

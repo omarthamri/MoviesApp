@@ -75,7 +75,7 @@ class SettingsViewController: UIViewController {
         return view
     }()
     
-    let settingItems = ["Push Notification","Contact Us","Privacy Policy","About us","Help"]
+    let settingItems = [NSLocalizedString("Push Notification", comment: ""), NSLocalizedString("Contact Us", comment: ""),NSLocalizedString("Privacy Policy", comment: ""),NSLocalizedString("About us", comment: ""),NSLocalizedString("Help", comment: "")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,7 +121,7 @@ class SettingsViewController: UIViewController {
     }
     
     func setupNavigationBar() {
-        navigationItem.title = "Settings"
+        navigationItem.title = NSLocalizedString("Settings", comment: "")
         navigationController?.navigationBar.barTintColor = UIColor.init(white:0.2,alpha:1)
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         let leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: self, action: #selector(showNavigationDrawer))
