@@ -66,7 +66,7 @@ class PrivacyPolicyViewController: UIViewController {
     
     func setupNavigationBar() {
         navigationController?.navigationBar.tintColor = .white
-        navigationItem.title = "Privacy Policy"
+        navigationItem.title = NSLocalizedString("Privacy Policy", comment: "")
         navigationItem.hidesBackButton = true
         let backBarButtonItem = UIBarButtonItem(image: UIImage(named: "backBtn"), style: .plain, target: self, action: #selector(backTapped))
         backBarButtonItem.tintColor = UIColor.white

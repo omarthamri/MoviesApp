@@ -19,7 +19,7 @@ class AboutUsViewController: UIViewController {
         aucv.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
         return aucv
     }()
-    let aboutUsMenuItems = [MenuItem(title: "Version",information: "1.0.0",imageName: "version"),MenuItem(title: "Developer",information: "Omar Thamri",imageName: "developer"),MenuItem(title: "Email",information: "omarthamri4@gmail.com",imageName: "email"),MenuItem(title: "Website",information: "www.omarthamri.ml",imageName: "website"),MenuItem(title: "Contact",information: "+21653615510",imageName: "contact")]
+    let aboutUsMenuItems = [MenuItem(title: "Version",information: "1.0.0",imageName: "version"),MenuItem(title: NSLocalizedString("Developer", comment: ""),information: "Omar Thamri",imageName: "developer"),MenuItem(title: "Email",information: "omarthamri4@gmail.com",imageName: "email"),MenuItem(title: NSLocalizedString("Website", comment: ""),information: "www.omarthamri.ml",imageName: "website"),MenuItem(title: "Contact",information: "+21653615510",imageName: "contact")]
     let aboutUsCellId = "aboutUsCellId"
     let aboutUSCVCellId = "aboutUSCVCellId"
     override func viewDidLoad() {
@@ -47,7 +47,7 @@ class AboutUsViewController: UIViewController {
     
     func setupNavigationBar() {
         navigationController?.navigationBar.tintColor = .white
-        navigationItem.title = "About Us"
+        navigationItem.title = NSLocalizedString("About us", comment: "")
         navigationItem.hidesBackButton = true
         let backBarButtonItem = UIBarButtonItem(image: UIImage(named: "backBtn"), style: .plain, target: self, action: #selector(backTapped))
         backBarButtonItem.tintColor = UIColor.white

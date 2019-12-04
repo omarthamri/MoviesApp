@@ -21,7 +21,7 @@ class InfoMovieCollectionViewCell: UICollectionViewCell {
     
     let typeLabel: UILabel = {
        let label = UILabel()
-        label.text = "2011 - 2019 / 42min / Comedy, Drama, Judicial"
+        label.text = "2011 - 2019 / 42min / \(NSLocalizedString("typeTxt", comment: ""))"
         label.textColor = UIColor.gray
         label.font = UIFont.systemFont(ofSize: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -30,7 +30,7 @@ class InfoMovieCollectionViewCell: UICollectionViewCell {
     
     let numberOfSeasonLabel: UILabel = {
         let label = UILabel()
-        label.text = "Total Number Of Season - 9"
+        label.text = "\(NSLocalizedString("Total Number Of Season", comment: "")) - 9"
         label.textColor = UIColor.gray
         label.font = UIFont.systemFont(ofSize: 15)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -39,7 +39,7 @@ class InfoMovieCollectionViewCell: UICollectionViewCell {
     
     let numberOfViewsLabel: UILabel = {
         let label = UILabel()
-        label.text = "276 Views"
+        label.text = "276 \(NSLocalizedString("Views", comment: ""))"
         label.textColor = UIColor.gray
         label.textAlignment = .right
         label.font = UIFont.systemFont(ofSize: 15)

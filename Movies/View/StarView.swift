@@ -49,7 +49,7 @@ class StarView: UIView {
     let reportBtn: UIButton = {
        let button = UIButton()
         button.backgroundColor = UIColor.blue
-        button.setTitle("Report here", for: .normal)
+        button.setTitle(NSLocalizedString("Report here", comment: ""), for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 16

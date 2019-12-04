@@ -44,7 +44,7 @@ class RelatedMovieViewController: UIViewController {
     
     func setupNavigationBar() {
         navigationController?.navigationBar.tintColor = .white
-        navigationItem.title = "Related TV Series"
+        navigationItem.title = NSLocalizedString("Related TV Series", comment: "")
         navigationItem.hidesBackButton = true
         let backBarButtonItem = UIBarButtonItem(image: UIImage(named: "backBtn"), style: .plain, target: self, action: #selector(backTapped))
         backBarButtonItem.tintColor = UIColor.white

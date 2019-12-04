@@ -14,7 +14,7 @@ class ContactUsView: UIView {
     let sendmessageLbl: UILabel = {
        let label = UILabel()
        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Send a Message"
+        label.text = NSLocalizedString("Send a Message", comment: "")
         label.textColor = UIColor.black
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textAlignment = .center
@@ -22,7 +22,7 @@ class ContactUsView: UIView {
     }()
     let nameTf: UITextField = {
        let textfield = UITextField()
-        textfield.placeholder = " Your Name..."
+        textfield.placeholder = NSLocalizedString(" Your Name...", comment: "")
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.layer.borderWidth = 1
         textfield.layer.borderColor = UIColor.init(white: 0.9, alpha: 1).cgColor
@@ -32,7 +32,7 @@ class ContactUsView: UIView {
     }()
     let emailTf: UITextField = {
         let textfield = UITextField()
-        textfield.placeholder = " Your Email..."
+        textfield.placeholder = NSLocalizedString(" Your Email...", comment: "")
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.layer.borderWidth = 1
         textfield.layer.borderColor = UIColor.init(white: 0.9, alpha: 1).cgColor
@@ -42,7 +42,7 @@ class ContactUsView: UIView {
     }()
     let messageTf: UITextField = {
         let textfield = UITextField()
-        textfield.placeholder = " Your Message..."
+        textfield.placeholder = NSLocalizedString(" Your Message...", comment: "")
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.layer.borderWidth = 1
         textfield.layer.borderColor = UIColor.init(white: 0.9, alpha: 1).cgColor
@@ -52,7 +52,7 @@ class ContactUsView: UIView {
     }()
     lazy var sendBtn: UIButton = {
         let button = UIButton()
-        button.setTitle("SEND IT", for: .normal)
+        button.setTitle(NSLocalizedString("SEND IT", comment: ""), for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
         button.translatesAutoresizingMaskIntoConstraints = false

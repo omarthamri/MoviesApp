@@ -12,7 +12,7 @@ class OverviewCollectionViewCell: UICollectionViewCell {
     
     let overviewLabel: UILabel = {
         let label = UILabel()
-        label.text = "Overview"
+        label.text = NSLocalizedString("Overview", comment: "")
         label.textColor = UIColor.white
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -21,7 +21,7 @@ class OverviewCollectionViewCell: UICollectionViewCell {
     
     let textLabel: UILabel = {
         let label = UILabel()
-        label.text = "A very ambitious lawyer from a big Manhattan firm, Harvey Specter needs someone to support him. His choice is on Mike Ross, a young man very brilliant but without diploma, endowed with a certain talent and a very precious photographic memory. Together, they are a winning team, ready to take on any challenge. Mike, however, will have to use all the tricks to maintain his place without anyone discovering that he has never passed the bar exam."
+        label.text = NSLocalizedString("overviewDescription", comment: "")
         label.textColor = UIColor.gray
         label.font = UIFont.boldSystemFont(ofSize: 15)
         label.numberOfLines = 0
