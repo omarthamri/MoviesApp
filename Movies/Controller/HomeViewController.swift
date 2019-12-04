@@ -114,7 +114,7 @@ class HomeViewController: UIViewController {
     }
     
     func setupNavigationBar() {
-        navigationItem.title = "Home"
+        navigationItem.title = NSLocalizedString("Home", comment: "")
          navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.barTintColor = UIColor.init(white:0.2,alpha:1)
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]

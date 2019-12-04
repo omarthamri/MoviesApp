@@ -16,7 +16,7 @@ class TvCategoryView: UIView {
     
     let tvCategoryLbl: UILabel = {
        let tcl = UILabel()
-        tcl.text = "TV Categories"
+        tcl.text = NSLocalizedString("TV Categories", comment: "")
         tcl.textColor = UIColor.white
         tcl.font = UIFont.boldSystemFont(ofSize: 20)
         tcl.translatesAutoresizingMaskIntoConstraints = false
@@ -25,7 +25,7 @@ class TvCategoryView: UIView {
     
     lazy var viewAllLbl: UIButton = {
         let tcl = UIButton()
-        tcl.setTitle("View All", for: .normal)
+        tcl.setTitle(NSLocalizedString("View All", comment: ""), for: .normal)
         tcl.setTitleColor(UIColor.orange, for: .normal)
         tcl.contentHorizontalAlignment = .right
         tcl.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)

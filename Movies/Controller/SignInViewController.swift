@@ -25,7 +25,7 @@ class SignInViewController: UIViewController {
     
     let mailTf: UITextField = {
         let tf = UITextField()
-        tf.attributedPlaceholder = NSAttributedString(string: "Email Or Phone",
+        tf.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Email Or Phone", comment: ""),
                                                       attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         tf.borderStyle = .none
         tf.textAlignment = .center
@@ -35,7 +35,7 @@ class SignInViewController: UIViewController {
     
     let passwordTf: UITextField = {
         let tf = UITextField()
-        tf.attributedPlaceholder = NSAttributedString(string: "Password",
+        tf.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Password", comment: ""),
                                                       attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         tf.borderStyle = .none
         tf.textAlignment = .center
@@ -66,7 +66,7 @@ class SignInViewController: UIViewController {
     
     let ForgotPasswordLabel: UILabel = {
         let label = UILabel()
-        label.text = "Forgot Password?"
+        label.text = NSLocalizedString("Forgot Password?", comment: "")
         label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false

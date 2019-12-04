@@ -23,7 +23,7 @@ class SignUpViewController: UIViewController {
     
     let fullNameTf: UITextField = {
         let tf = UITextField()
-        tf.attributedPlaceholder = NSAttributedString(string: "Full Name",
+        tf.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Full Name", comment: ""),
                                                       attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         tf.borderStyle = .none
         tf.textAlignment = .center
@@ -43,7 +43,7 @@ class SignUpViewController: UIViewController {
     
     let phoneTf: UITextField = {
         let tf = UITextField()
-        tf.attributedPlaceholder = NSAttributedString(string: "Phone Number",
+        tf.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Phone Number", comment: ""),
                                                       attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         tf.borderStyle = .none
         tf.textAlignment = .center
@@ -53,7 +53,7 @@ class SignUpViewController: UIViewController {
     
     let passwordTf: UITextField = {
         let tf = UITextField()
-        tf.attributedPlaceholder = NSAttributedString(string: "Password",
+        tf.attributedPlaceholder = NSAttributedString(string: NSLocalizedString("Password", comment: ""),
                                                       attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         tf.borderStyle = .none
         tf.textAlignment = .center
@@ -83,7 +83,7 @@ class SignUpViewController: UIViewController {
     
     let signUpButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Sign Up", for: .normal)
+        button.setTitle(NSLocalizedString("Sign Up", comment: ""), for: .normal)
         button.backgroundColor = UIColor.orange
         button.setTitleColor(UIColor.white, for: .normal)
         button.clipsToBounds = true
@@ -94,7 +94,7 @@ class SignUpViewController: UIViewController {
     
     lazy var SignInLabel: UILabel = {
         let label = UILabel()
-        label.text = "Already a Member? Sign In"
+        label.text = "\(NSLocalizedString("Already a Member?", comment: "")) \(NSLocalizedString("Sign In", comment: ""))"
         label.textColor = UIColor.white
         label.font = UIFont.systemFont(ofSize: 17)
         label.translatesAutoresizingMaskIntoConstraints = false

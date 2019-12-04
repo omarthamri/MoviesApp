@@ -33,7 +33,7 @@ class TvCategoryListViewController: UIViewController {
     
     func setupView() {
         navigationController?.navigationBar.tintColor = .white
-        navigationItem.title = "TV Categories"
+        navigationItem.title = NSLocalizedString("TV Categories", comment: "")
         view.backgroundColor = UIColor.init(white: 0.2, alpha: 1)
         view.addSubview(tvCategoryListCV)
         tvCategoryListCV.register(TvCategoryListViewCell.self, forCellWithReuseIdentifier: TvCategoryListViewCellId)
